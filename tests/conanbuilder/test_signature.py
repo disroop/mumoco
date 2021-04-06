@@ -9,5 +9,5 @@ def test_version():
 def test_version_set():
     signature = Signature()
     signature.version = "1.0.0"
-    assert signature.version is "1.0.0"
+    assert signature.version == "1.0.0"
 
