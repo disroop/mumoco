@@ -1,4 +1,4 @@
-from conanbuilder.signature import Signature
+from src.conanbuilder.signature import Signature
 
 
 def test_version():
