@@ -36,7 +36,6 @@ class Package:
         return ""
 
     def _read_package_attributes(self, path):
-        conan_package = self.conanfactory.inspect(path=f'{path}', attributes=["name"])
         self.name = self._get_attribute(path, 'name', True)
         version = self._get_attribute(path, 'version')
         if version != "":
