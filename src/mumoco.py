@@ -14,11 +14,10 @@ def get_args():
     parser.add_argument("--config", type=str, required=False, default=f"{cwd}/config-build.json",
                         help="Path to config-build.json")
     parser.add_argument("--sources", action="store_true", required=False, help="Download sources to PACKAGE-PATH/tmp")
-    parser.add_argument("--create", action="store_true", required=False, help="Create all packages")
-    parser.add_argument("--setup", action="store_true", required=False, help="This command will setup all the remotes.")
     parser.add_argument("--remove", action="store_true", required=False, help="Remove all sources")
-    parser.add_argument("--remotes", action="store_true", required=False, help="Add all remotes from config-build.json")
+    parser.add_argument("--create", action="store_true", required=False, help="Create all packages")
     parser.add_argument("--upload", type=str, required=False, help="Upload all packages to repository")
+    parser.add_argument("--remotes", action="store_true", required=False, help="Add all remotes from config-build.json")
     parser.add_argument("--user", type=str, required=False, default=None, help="User credentials")
     parser.add_argument("--password", type=str, required=False, default=None, help="Access token")
     return parser.parse_args()

@@ -1,0 +1,66 @@
+# Configuration
+
+The configuration of mumoco is set in a json file, default config-build.json. Therefore several configuration can be applied. Here is an example of a configuration.
+
+[source,json]
+----
+include::example/config-build.json[]
+----
+
+Each parameter of the config-build.json file is explained in this table:
+
+|===
+|Parameter |Description
+
+|version
+|If no version is set in the conan recipe. This version will be given.
+
+
+|channel
+|If no channel is set in the conan recipe. This channel will be given.
+
+|user
+|If no user is set in the conan recipe. This user will be given.
+
+|configurations
+|configurations can hold multiple configurations how the found conan packages should be build.
+
+|configurations.hostsettings
+|This parameter can hold multiple host settings of a conan create.
+
+|configurations.hostprofile
+|hostprofile sets the host profile which is used to create a conan package. If no host profile is given the default profile is taken.
+
+|configurations.buildprofile
+|buildprofile sets the build profile which is used to create a conan package. If no build profile is given the default profile is taken.
+
+|configurations.includes
+|If include folder are set only those conanfile.py files which are within the set folder are within the scope of mumoco.
+
+|configurations.excludes
+|If exclude folders are set those conanfile.py files which are within the set folders are out of scope of mumoco.
+
+|remotes
+|remotes can hold multiple conan remote repository which are configured with the parameter mumoco --remotes. If a remote
+is configured, it is mandatory that a name and url is configured. By default a remote in the config-build.json file is always added to the top of the conan remote list.
+
+|remotes.name
+|Sets the name of the conan remote. This parameter is mandatory if a remote is set.
+
+|remotes.url
+|Sets the url of the conan remote. This parameter is mandatory if a remote is set.
+
+|remotes.force
+|If there is already a remote repository configured with the same name force will overwrite the configuration. Default=False.
+
+|remotes.login
+|If this parameter is set to true. mumoco tries to login with the given credentials (--user, --password parameter) to the remote. Default=False.
+
+|remotes.verify_ssl
+|If this parameter is set to false. mumoco will not verify the ssl connection. Default=True.
+
+|remotes.priority
+|This parameter can set the priority of the remote in the conan remote list. Default=0 (Highest priority).
+
+|===
+

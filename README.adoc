@@ -1,0 +1,56 @@
+# mumoco
+
+mumoco or multi module conan is a tool to help for working with multiple conan package simultaneously. mumoco is using pure conan commands and should only simplify the workflow.
+
+mumoco has several features, but the essential feature is that mumoco can find all conanfile.py in a given folder and in their subfolders to create conan packages. Another feature that mumoco has is to execute the conan source command in all found conan packages, this is extremely helpful if you work with conan packages that has external sources. 
+mumoco also can upload all the conan packages which where created and to login to the remote mumoco has another feature to add and to login to conan remotes.
+
+
+## Parameters
+
+|===
+|Argument |Description | Required | Default
+
+|--root
+|Root folder of mumoco. This is the top folder where mumoco starts to search all conanfile.py files. All conanfile.py in the subfolders will be considered by mumoco, except conanfile.py in test_package folders" 
+|False
+|Current Working Directory (CWD)
+
+|--config
+|Path to config-build.json file. The config-build.json is the configuration of mumoco. More details can be found here link:doc/configuration.adoc[configuration].
+|False
+|(Current Working Directory)/config-build.json
+
+|--sources
+|If this argument is given. Mumoco executes the conan source command with the argument PACKAGE-PATH/tmp, meaning the sources are copied to the PACKAGE-PATH/tmp folder.
+|False
+|NONE
+
+|--remove
+|If this argument is given. Mumoco removes all folders PACKAGE-PATH/tmp. This is helpful to cleanup all sources which mumoco copied with the sources command. 
+|False
+|NONE
+
+|--create
+|If this argument is given. Mumoco exports all conan packages into cache and creates all conan packages according to the config-build.json definition.
+|False
+|None
+
+|--remotes
+|Mumoco updates all the conan remotes which are defined in config-build.json file. If the remotes.login parameter in the config-build.json file is set on a remote then the --user and --password parameter must be set.
+|False
+|None
+
+
+|--user
+|If the remotes.login parameter in the config-build.json file is set this is the user which is needed to login.
+|False
+|None
+
+|--password
+|If the remotes.login parameter in the config-build.json file is set this is the password which is needed to login.
+|False
+|None
+|===
+
+

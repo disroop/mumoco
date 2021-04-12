@@ -1,0 +1,25 @@
+{
+    "version": "snapshot",
+    "channel": "development",
+    "user": "disroop",
+    "configurations":[
+        {
+            "hostsettings": ["build_type=Debug"],
+            "includes": ["cmake_vars","gcc_arm_none_eabi"]
+        },
+        {
+            "hostprofile": ".profiles/gcc-arm-none-eabi-9",
+            "buildprofile": "default",
+            "hostsettings": ["build_type=Debug"],
+            "excludes": ["cmake_vars","gcc_arm_none_eabi"]
+        }
+    ],
+    "remotes": [
+        {
+            "name": "disroop-conan",
+            "url": "https://disroop.jfrog.io/artifactory/api/conan/disroop-conan",
+            "login": true,
+            "force": true
+        }
+    ]
+}
