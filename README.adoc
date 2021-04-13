@@ -42,7 +42,7 @@ mumoco also can upload all the conan packages which where created and to login t
 |None
 
 
-|--user
+|--username
 |If the remotes.login parameter in the config-build.json file is set this is the user which is needed to login.
 |False
 |None

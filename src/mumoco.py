@@ -18,7 +18,7 @@ def get_args():
                         help="Path to root folder of multipackage module")
     parser.add_argument("--config", type=str, required=False, default=f"{cwd}/config-build.json",
                         help="Path to config-build.json")
-    parser.add_argument("--user", type=str, required=False, default=None, help="User credentials")
+    parser.add_argument("--username", type=str, required=False, default=None, help="User credentials")
     parser.add_argument("--password", type=str, required=False, default=None, help="Access token")
     parser.add_argument("--remotes", action="store_true", required=False, help="Add all remotes from config-build.json")
     parser.add_argument("--sources", action="store_true", required=False, help="Download sources to PACKAGE-PATH/tmp")
@@ -43,7 +43,7 @@ def main():
     config_reader.read()
     runner = Runner(args.root, config_reader.get_signature())
     if args.remotes:
-        runner.add_all_remotes(config_reader.get_remotes(), args.user, args.password)
+        runner.add_all_remotes(config_reader.get_remotes(), args.username, args.password)
     if args.sources:
         runner.get_all_sources()
     if args.remove:
