@@ -2,8 +2,8 @@
 import argparse
 import os
 
-from src import ConfigReader
-from src import Runner
+from src.conanbuilder.configreader import ConfigReader
+from src.conanbuilder.runner import Runner
 
 
 def get_args():
@@ -22,14 +22,13 @@ def get_args():
     parser.add_argument("--password", type=str, required=False, default=None, help="Access token")
     return parser.parse_args()
 
-
-if __name__ == "__main__":
+def main():
     args = get_args();
     config_reader = ConfigReader(args.config)
     config_reader.read()
     runner = Runner(args.root, config_reader.get_signature())
     if args.remotes:
-        runner.add_all_remotes(config_reader.get_remotes(),args.user, args.password)
+        runner.add_all_remotes(config_reader.get_remotes(), args.user, args.password)
     if args.create:
         runner.export_all()
         runner.create_all(config_reader.get_configurations())
@@ -39,5 +38,8 @@ if __name__ == "__main__":
         runner.remove_all_sources()
     if args.upload:
         runner.upload_all_packages(args.upload)
+
+if __name__ == "__main__":
+    main()
     # create_all(packages,config_reader.get_configurations())
     # packages[0].get_build_order(config_reader.get_configurations()[0])
