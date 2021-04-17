@@ -1,7 +1,7 @@
 class BuilderSettings:
     def __init__(self):
-        self.host_profile = None
-        self.build_profile = None
+        self.host_profile = "default"
+        self.build_profile = "default"
         self.host_settings = ""
         self.excludes = []
         self.includes = []

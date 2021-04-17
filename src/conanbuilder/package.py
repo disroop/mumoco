@@ -1,7 +1,7 @@
 import copy
 import shutil
 
-from conans.client.conan_api import Conan
+from conans.client.conan_api import Conan, ProfileData
 
 from .buildersettings import BuilderSettings
 from .signature import Signature
@@ -72,13 +72,16 @@ class Package:
 
     def create(self, configuration=BuilderSettings()):
         pattern=self.get_pattern()
+        print(f"{configuration.host_profile}")
+        profile_build = ProfileData(profiles=[f"{configuration.build_profile}"],settings="",
+                                    options="", env="")
         self.conanfactory.create(self.path,
                                   name=self.name,
                                   version=self._signature.version,
                                   user=self._signature.user,
                                   channel=self._signature.channel,
-                                  profile_names=configuration.host_profile,
-                                  profile_build=configuration.build_profile,
+                                  profile_names=[f"{configuration.host_profile}"],
+                                  profile_build=profile_build,
                                   settings=configuration.host_settings,
                                   test_build_folder=f'/tmp/{pattern}/tbf')
 
