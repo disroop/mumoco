@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='mumoco',
-    version='0.1.3',
+    version='0.2.0',
     packages=['src', 'src.conanbuilder'],
     url='https://github.com/disroop/mumoco',
     license='LICENSE.txt',

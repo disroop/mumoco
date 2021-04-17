@@ -83,6 +83,7 @@ class Package:
                                   profile_names=[f"{configuration.host_profile}"],
                                   profile_build=profile_build,
                                   settings=configuration.host_settings,
+                                  build_modes=[f"{configuration.build}"],
                                   test_build_folder=f'/tmp/{pattern}/tbf')
 
     def source(self):
