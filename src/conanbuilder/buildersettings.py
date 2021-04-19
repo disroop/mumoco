@@ -4,7 +4,7 @@ class BuilderSettings:
         self.__build_profile = "default"
         self.__host_settings = []
         self.__build_settings = []
-        self.__build=None
+        self.__build=""
         self.__excludes = []
         self.__includes = []
 
