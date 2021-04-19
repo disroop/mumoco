@@ -2,8 +2,9 @@ class BuilderSettings:
     def __init__(self):
         self.__host_profile = "default"
         self.__build_profile = "default"
-        self.__host_settings = ""
-        self.__build="missing"
+        self.__host_settings = []
+        self.__build_settings = []
+        self.__build=None
         self.__excludes = []
         self.__includes = []
 
@@ -32,6 +33,21 @@ class BuilderSettings:
         self.__host_settings = val
 
     @property
+    def build_settings(self):
+        return self.__build_settings
+
+    @build_settings.setter
+    def build_settings(self, val):
+        self.__build_settings = val
+
+    def convert_build_settings_str(self):
+        strBuildSettings = "" 
+        # traverse in the string  
+        for settings in self.build_settings: 
+            strBuildSettings += settings  
+        return strBuildSettings
+
+    @property
     def excludes(self):
         return self.__excludes
 
@@ -52,5 +68,5 @@ class BuilderSettings:
         return self.__build
 
     @build.setter
-    def build_modes(self, val):
+    def build(self, val):
         self.__build = val

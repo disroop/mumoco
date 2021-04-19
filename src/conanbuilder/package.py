@@ -71,9 +71,8 @@ class Package:
                                   self._signature.channel)
 
     def create(self, configuration=BuilderSettings()):
-        pattern=self.get_pattern()
-        print(f"{configuration.host_profile}")
-        profile_build = ProfileData(profiles=[f"{configuration.build_profile}"],settings="",
+        pattern=self.get_pattern() 
+        profile_build = ProfileData(profiles=[f"{configuration.build_profile}"],settings=configuration.convert_build_settings_str(),
                                     options="", env="")
         self.conanfactory.create(self.path,
                                   name=self.name,

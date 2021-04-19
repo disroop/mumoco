@@ -32,10 +32,14 @@ class ConfigReader:
                             configuration.build_profile = p['buildprofile']
                         if 'hostsettings' in p:
                             configuration.host_settings = p['hostsettings']
+                        if 'hostbuild' in p:
+                            configuration.host_build = p['hostbuild']
                         if 'excludes' in p:
                             configuration.excludes = p['excludes']
                         if 'includes' in p:
                             configuration.includes = p['includes']
+                        if 'build' in p:
+                            configuration.build = p['build']
                         self._configurations.append(configuration)
                 if 'remotes' in data:
                     self._remotes = []

@@ -17,6 +17,8 @@ class Runner:
                   f"# host profile:  {config.host_profile}\n"
                   f"# build profile: {config.build_profile}\n"
                   f"# host settings: {config.host_settings}\n"
+                  f"# build settings: {config.build_settings}\n"
+                  f"# build :         {config.build}\n"
                   f"# includes:      {config.includes}\n"
                   f"# excludes:      {config.excludes}\n"
                   "#######################################\n")

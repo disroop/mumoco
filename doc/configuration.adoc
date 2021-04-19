@@ -28,11 +28,17 @@ Each parameter of the config-build.json file is explained in this table:
 |configurations.hostsettings
 |This parameter can hold multiple host settings of a conan create.
 
+|configurations.buildsettings
+|This parameter can hold multiple build settings of a conan create.
+
 |configurations.hostprofile
 |hostprofile sets the host profile which is used to create a conan package. If no host profile is given the default profile is taken.
 
 |configurations.buildprofile
 |buildprofile sets the build profile which is used to create a conan package. If no build profile is given the default profile is taken.
+
+|configurations.build
+|build sets the build mode which is used to create a conan package. If no build profile is given the build mode None is taken. Other options are: "never", "missing", "cascade", "outdated"
 
 |configurations.includes
 |If include folder are set only those conanfile.py files which are within the set folder are within the scope of mumoco.
