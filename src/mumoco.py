@@ -5,11 +5,13 @@ import os
 from src.conanbuilder.configreader import ConfigReader
 from src.conanbuilder.runner import Runner
 
+
 def valid_args(args):
     if args.remotes or args.sources or args.remove or args.create or args.upload:
         return True
     else:
         return False
+
 
 def get_args():
     cwd = os.getcwd()
@@ -53,6 +55,7 @@ def main():
         runner.create_all(config_reader.get_configurations())
     if args.upload:
         runner.upload_all_packages(args.upload)
+
 
 if __name__ == "__main__":
     main()

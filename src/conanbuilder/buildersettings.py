@@ -4,7 +4,7 @@ class BuilderSettings:
         self.__build_profile = "default"
         self.__host_settings = []
         self.__build_settings = []
-        self.__build=""
+        self.__build = ""
         self.__excludes = []
         self.__includes = []
 
@@ -41,10 +41,10 @@ class BuilderSettings:
         self.__build_settings = val
 
     def convert_build_settings_str(self):
-        strBuildSettings = "" 
+        strBuildSettings = ""
         # traverse in the string  
-        for settings in self.build_settings: 
-            strBuildSettings += settings  
+        for settings in self.build_settings:
+            strBuildSettings += settings
         return strBuildSettings
 
     @property

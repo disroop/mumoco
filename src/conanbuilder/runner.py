@@ -44,7 +44,11 @@ class Runner:
             "#######################################\n")
         if remotes:
             for remote in remotes:
-                self.conanfactory.remote_add(remote_name=remote.name, url=remote.url, verify_ssl=remote.verify_ssl, insert=remote.priority, force=remote.force)
+                self.conanfactory.remote_add(remote_name=remote.name,
+                                             url=remote.url,
+                                             verify_ssl=remote.verify_ssl,
+                                             insert=remote.priority,
+                                             force=remote.force)
                 if remote.login:
                     if not username or not password:
                         raise Warning(f"Can't login to {remote.name} no username or password provided!")
@@ -84,7 +88,6 @@ class Runner:
     def upload_all_packages(self, remote):
         print("#######################################\n"
               "########### upload packages ###########\n"
-              "#######################################\n")        
+              "#######################################\n")
         for package in self.packages:
             package.upload_package(remote)
-        

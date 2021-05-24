@@ -7,6 +7,7 @@ from .buildersettings import BuilderSettings
 from .signature import Signature
 from conans.errors import ConanException
 
+
 class Package:
     source_folder = "tmp"
 
@@ -65,33 +66,34 @@ class Package:
 
     def export(self):
         self.conanfactory.export(self.path,
-                                  self.name,
-                                  self._signature.version,
-                                  self._signature.user,
-                                  self._signature.channel)
+                                 self.name,
+                                 self._signature.version,
+                                 self._signature.user,
+                                 self._signature.channel)
 
     def create(self, configuration=BuilderSettings()):
-        pattern=self.get_pattern() 
-        profile_build = ProfileData(profiles=[f"{configuration.build_profile}"],settings=configuration.convert_build_settings_str(),
+        pattern = self.get_pattern()
+        profile_build = ProfileData(profiles=[f"{configuration.build_profile}"],
+                                    settings=configuration.convert_build_settings_str(),
                                     options="", env="")
         self.conanfactory.create(self.path,
-                                  name=self.name,
-                                  version=self._signature.version,
-                                  user=self._signature.user,
-                                  channel=self._signature.channel,
-                                  profile_names=[f"{configuration.host_profile}"],
-                                  profile_build=profile_build,
-                                  settings=configuration.host_settings,
-                                  build_modes=[f"{configuration.build}"],
-                                  test_build_folder=f'/tmp/{pattern}/tbf')
+                                 name=self.name,
+                                 version=self._signature.version,
+                                 user=self._signature.user,
+                                 channel=self._signature.channel,
+                                 profile_names=[f"{configuration.host_profile}"],
+                                 profile_build=profile_build,
+                                 settings=configuration.host_settings,
+                                 build_modes=[f"{configuration.build}"],
+                                 test_build_folder=f'/tmp/{pattern}/tbf')
 
     def source(self):
         self.conanfactory.source(self.path,
-                                  source_folder=f"{self.path}/{self.source_folder}")
+                                 source_folder=f"{self.path}/{self.source_folder}")
 
     def source_remove(self):
         shutil.rmtree(f"{self.path}/{self.source_folder}", ignore_errors=False, onerror=None);
 
     def upload_package(self, remote):
-        pattern=self.get_pattern()
-        self.conanfactory.upload(pattern,package=None,remote_name=remote)
+        pattern = self.get_pattern()
+        self.conanfactory.upload(pattern, package=None, remote_name=remote)

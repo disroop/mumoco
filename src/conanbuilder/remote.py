@@ -38,11 +38,11 @@ class Remote:
     @force.setter
     def force(self, val):
         self._force = val
-    
+
     @property
     def login(self):
         return self._login
 
     @login.setter
     def login(self, val):
-        self._login= val
+        self._login = val
