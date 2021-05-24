@@ -41,11 +41,11 @@ class BuilderSettings:
         self.__build_settings = val
 
     def convert_build_settings_str(self):
-        strBuildSettings = ""
+        str_build_settings = ""
         # traverse in the string  
         for settings in self.build_settings:
-            strBuildSettings += settings
-        return strBuildSettings
+            str_build_settings += settings
+        return str_build_settings
 
     @property
     def excludes(self):

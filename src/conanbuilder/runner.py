@@ -38,10 +38,9 @@ class Runner:
     # conan_command_line.upload(package_pattern)
     # print(f'SUCCESS: {package_pattern}')
     def add_all_remotes(self, remotes, username=None, password=None):
-        print(
-            "#######################################\n"
-            "########### add remote ##########\n"
-            "#######################################\n")
+        print("#######################################\n"
+              "########### add remote ################\n"
+              "#######################################\n")
         if remotes:
             for remote in remotes:
                 self.conanfactory.remote_add(remote_name=remote.name,
@@ -70,15 +69,13 @@ class Runner:
             package.export()
 
     def get_all_sources(self):
-        print(
-            "#######################################\n"
-            "########### download sources ##########\n"
-            "#######################################\n")
+        print("#######################################\n"
+              "########### download sources ##########\n"
+              "#######################################\n")
         for package in self.packages:
             package.source()
 
     def remove_all_sources(self):
-        text = ()
         print("#######################################\n"
               "########### remove sources ############\n"
               "#######################################\n")

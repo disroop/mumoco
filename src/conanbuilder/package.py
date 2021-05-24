@@ -1,7 +1,7 @@
 import copy
 import shutil
 
-from conans.client.conan_api import Conan, ProfileData
+from conans.client.conan_api import ProfileData
 
 from .buildersettings import BuilderSettings
 from .signature import Signature
@@ -92,7 +92,7 @@ class Package:
                                  source_folder=f"{self.path}/{self.source_folder}")
 
     def source_remove(self):
-        shutil.rmtree(f"{self.path}/{self.source_folder}", ignore_errors=False, onerror=None);
+        shutil.rmtree(f"{self.path}/{self.source_folder}", ignore_errors=False, onerror=None)
 
     def upload_package(self, remote):
         pattern = self.get_pattern()
