@@ -56,7 +56,7 @@ class Runner:
         else:
             raise Warning("No Remotes defined. Nothing to add!")
 
-    def _get_all_packages(self, root_path, signature=Signature()) -> object:
+    def _get_all_packages(self, root_path, signature=Signature()) -> [Package]:
         conan_packages = []
         for path in Path(root_path).rglob('conanfile.py'):
             path = str(path.absolute())
