@@ -1,3 +1,5 @@
+from typing import List
+
 from .signature import Signature
 from .package import Package
 from pathlib import Path
@@ -56,12 +58,12 @@ class Runner:
         else:
             raise Warning("No Remotes defined. Nothing to add!")
 
-    def _get_all_packages(self, root_path, signature=Signature()) -> [Package]:
+    def _get_all_packages(self, root_path, signature=Signature()) -> List[Package]:
         conan_packages = []
         for path in Path(root_path).rglob('conanfile.py'):
-            path = str(path.absolute())
-            if "test_package" not in path:
-                conan_packages.append(Package(self.conanfactory, signature, path))
+            path_string = str(path.absolute())
+            if "test_package" not in path_string:
+                conan_packages.append(Package(self.conanfactory, signature, path_string))
         return conan_packages
 
     def export_all(self):

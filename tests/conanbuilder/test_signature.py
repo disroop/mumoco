@@ -8,7 +8,7 @@ def signature():
 
 
 def test_version(signature):
-    assert signature.version is None
+    assert not signature.version
 
 
 def test_version_set(signature):
@@ -17,7 +17,7 @@ def test_version_set(signature):
 
 
 def test_channel(signature):
-    assert signature.channel is None
+    assert not signature.channel
 
 
 def test_channel_set(signature):
@@ -26,7 +26,7 @@ def test_channel_set(signature):
 
 
 def test_user(signature):
-    assert signature.user is None
+    assert not signature.user
 
 
 def test_user_set(signature):

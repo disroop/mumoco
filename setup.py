@@ -13,7 +13,7 @@ setup(
           'conan',
       ],
     entry_points={
-    'console_scripts': [
-        'mumoco = src.mumoco:main']
+        'console_scripts': [
+            'mumoco = src.mumoco:main']
     },
 )

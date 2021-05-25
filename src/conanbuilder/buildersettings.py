@@ -1,10 +1,10 @@
 class BuilderSettings:
     def __init__(self):
-        self.__host_profile = "default"
-        self.__build_profile = "default"
+        self.__host_profile: str = "default"
+        self.__build_profile: str = "default"
         self.__host_settings = []
         self.__build_settings = []
-        self.__build = ""
+        self.__build: str = ""
         self.__excludes = []
         self.__includes = []
 
@@ -42,7 +42,7 @@ class BuilderSettings:
 
     def convert_build_settings_str(self):
         str_build_settings = ""
-        # traverse in the string  
+        # traverse in the string
         for settings in self.build_settings:
             str_build_settings += settings
         return str_build_settings

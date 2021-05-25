@@ -7,10 +7,7 @@ from src.conanbuilder.runner import Runner
 
 
 def valid_args(args):
-    if args.remotes or args.sources or args.remove or args.create or args.upload:
-        return True
-    else:
-        return False
+    return args.remotes or args.sources or args.remove or args.create or args.upload
 
 
 def get_args():
@@ -40,7 +37,7 @@ def get_args():
 
 
 def main():
-    args = get_args();
+    args = get_args()
     config_reader = ConfigReader(args.config)
     config_reader.read()
     runner = Runner(args.root, config_reader.get_signature())

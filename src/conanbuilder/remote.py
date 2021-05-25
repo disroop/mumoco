@@ -1,11 +1,11 @@
 class Remote:
     def __init__(self, name, url, verify_ssl=True, priority=0, force=False, login=False):
-        self._name = name
-        self._url = url
-        self._verify_ssl = verify_ssl
-        self._priority = priority
-        self._force = force
-        self._login = login
+        self._name: str = name
+        self._url: str = url
+        self._verify_ssl: bool = verify_ssl
+        self._priority: int = priority
+        self._force: bool = force
+        self._login: bool = login
 
     @property
     def name(self):

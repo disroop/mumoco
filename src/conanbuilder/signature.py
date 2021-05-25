@@ -1,8 +1,8 @@
 class Signature:
     def __init__(self):
-        self.version = None
-        self.channel = None
-        self.user = None
+        self.version: str = ""
+        self.channel: str = ""
+        self.user: str = ""
 
     @property
     def version(self):
