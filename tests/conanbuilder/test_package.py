@@ -7,18 +7,20 @@ from conans.errors import ConanException
 
 
 def inspect_conanfile_all(*args, **kwargs):
-    vals = {"name": {'name': "example"},
-            "version": {'version': "0.0.1"},
-            "user": {'user': "test"},
-            "channel": {'channel': "release"}}
-    list = kwargs['attributes']
+    vals = {
+        "name": {"name": "example"},
+        "version": {"version": "0.0.1"},
+        "user": {"user": "test"},
+        "channel": {"channel": "release"},
+    }
+    list = kwargs["attributes"]
     attribute = list[0]
     return vals[attribute]
 
 
 def inspect_conanfile_only_name(*args, **kwargs):
-    vals = {"name": {'name': "example"}}
-    list = kwargs['attributes']
+    vals = {"name": {"name": "example"}}
+    list = kwargs["attributes"]
     attribute = list[0]
     if attribute in vals:
         return vals[attribute]
