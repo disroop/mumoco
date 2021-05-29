@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "mumoco"
-version = "0.2.2"
+version = "0.2.3"
 description = "This is tool helps to work with multiple conan modules simultaneously."
 license = "MIT"
 homepage = "https://github.com/disroop/mumoco"
