@@ -1,5 +1,6 @@
 import copy
 import shutil
+import tempfile
 
 from conans.client.conan_api import ProfileData
 from conans.errors import ConanException
@@ -87,7 +88,7 @@ class Package:
             profile_build=profile_build,
             settings=configuration.host_settings,
             build_modes=[f"{configuration.build}"],
-            test_build_folder=f"/tmp/{pattern}/tbf",  # nosec -> fixme bandit issue and remove nosec
+            test_build_folder="{}/{}/tbf".format(tempfile.gettempdir(), pattern),
         )
 
     def source(self):
