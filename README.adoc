@@ -54,3 +54,22 @@ mumoco also can upload all the conan packages which where created and to login t
 |===
 
 
+== Code Analysis
+
+image:https://sonarcloud.io/images/project_badges/sonarcloud-black.svg[]
+
+image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=bugs[]
+image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=code_smells[]
+image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=coverage[]
+image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=duplicated_lines_density[]
+image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=ncloc[]
+image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=sqale_rating[]
+image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=alert_status[]
+image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=reliability_rating[]
+image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=security_rating[]
+image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=sqale_index[]
+image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=vulnerabilities[]
+
+
+
+
