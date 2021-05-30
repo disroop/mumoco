@@ -1,4 +1,4 @@
-name: Release Python Package
+name: Release
 
 on:
   release:
@@ -8,18 +8,12 @@ jobs:
   release:
     runs-on: ubuntu-latest
     steps:
-      #----------------------------------------------
-      #       check-out repo and set-up python
-      #----------------------------------------------
       - name: Check out repository
         uses: actions/checkout@v2
       - name: Set up python
         uses: actions/setup-python@v2
         with:
           python-version: 3.9
-      #----------------------------------------------
-      #  -----  install & configure poetry  -----
-      #----------------------------------------------
       - name: Install Poetry
         uses: snok/install-poetry@v1.1.6
         with:
@@ -40,29 +34,18 @@ jobs:
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
         run: poetry install --no-interaction --no-root
-      #----------------------------------------------
-      # install your root project, if required
-      #----------------------------------------------
       - name: Install library
         run: poetry install --no-interaction
       - name: Check format with black
-        run: |
-          source .venv/bin/activate
-          black -l 120 --check --check .
+        run: poetry run black -l 120 --check --check .
       - name: Lint with flake8
         run: |
-          source .venv/bin/activate
           # stop the build if there are Python syntax errors or undefined names
-          flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics  --extend-exclude=.venv
+          poetry run flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics  --extend-exclude=.venv
           # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-          flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics --extend-exclude=.venv
-      #----------------------------------------------
-      #              run test suite
-      #----------------------------------------------
+          poetry run flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics --extend-exclude=.venv
       - name: Run tests
-        run: |
-          source .venv/bin/activate
-          pytest tests
+        run: poetry run pytest
 #         / coverage report
       - name: Build and publish
         run: |
