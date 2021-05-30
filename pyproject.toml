@@ -19,6 +19,7 @@ flake8 = "^3.9.2"
 pytest-cov = "^2.12.0"
 mypy = "^0.812"
 black = "21.5b1"
+isort = "^5.8.0"
 
 [tool.poetry.scripts]
 mumoco = "src.mumoco:main"
