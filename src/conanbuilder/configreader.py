@@ -1,10 +1,9 @@
 import json
-
 from typing import List
 
-from .signature import Signature
 from .buildersettings import BuilderSettings
 from .remote import Remote
+from .signature import Signature
 
 
 class ConfigReader:

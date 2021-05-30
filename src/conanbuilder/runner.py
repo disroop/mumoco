@@ -1,9 +1,10 @@
+from pathlib import Path
 from typing import List
 
-from .signature import Signature
-from .package import Package
-from pathlib import Path
 from conans.client.conan_api import Conan
+
+from .package import Package
+from .signature import Signature
 
 
 class Runner:

@@ -1,9 +1,10 @@
-from unittest.mock import Mock, MagicMock
+from unittest.mock import MagicMock, Mock
+
+from conans.client.conan_api import Conan
+from conans.errors import ConanException
 
 from src.conanbuilder.package import Package
 from src.conanbuilder.signature import Signature
-from conans.client.conan_api import Conan
-from conans.errors import ConanException
 
 
 def inspect_conanfile_all(*args, **kwargs):
