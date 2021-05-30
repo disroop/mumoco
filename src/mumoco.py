@@ -6,11 +6,14 @@ from src.conanbuilder.configreader import ConfigReader
 from src.conanbuilder.runner import Runner
 
 
-def valid_args(args):
-    return args.remotes or args.sources or args.remove or args.create or args.upload
+def valid_args(args: argparse.Namespace) -> bool:
+    if args.remotes or args.sources or args.remove or args.create or args.upload:
+        return True
+    else:
+        return False
 
 
-def get_args():
+def get_args() -> argparse.Namespace:
     cwd = os.getcwd()
     parser = argparse.ArgumentParser()
     parser.add_argument(
@@ -40,7 +43,7 @@ def get_args():
     return parser.parse_args()
 
 
-def main():
+def main() -> None:
     args = get_args()
     config_reader = ConfigReader(args.config)
     config_reader.read()
