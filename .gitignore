@@ -154,3 +154,6 @@ Thumbs.db
 
 # IDE
 .idea
+
+#Coverage
+coverage-reports/
