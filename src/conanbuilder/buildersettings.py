@@ -1,72 +1,20 @@
+from dataclasses import dataclass
+from typing import List
+
+
+@dataclass
 class BuilderSettings:
-    def __init__(self):
-        self.__host_profile: str = "default"
-        self.__build_profile: str = "default"
-        self.__host_settings = []
-        self.__build_settings = []
-        self.__build: str = ""
-        self.__excludes = []
-        self.__includes = []
+    host_profile: str = "default"
+    build_profile: str = "default"
+    host_settings: List[str] = []
+    build_settings: List[str] = []
+    build: str = ""
+    excludes: List[str] = []
+    includes: List[str] = []
 
-    @property
-    def host_profile(self):
-        return self.__host_profile
-
-    @host_profile.setter
-    def host_profile(self, val):
-        self.__host_profile = val
-
-    @property
-    def build_profile(self):
-        return self.__build_profile
-
-    @build_profile.setter
-    def build_profile(self, val):
-        self.__build_profile = val
-
-    @property
-    def host_settings(self):
-        return self.__host_settings
-
-    @host_settings.setter
-    def host_settings(self, val):
-        self.__host_settings = val
-
-    @property
-    def build_settings(self):
-        return self.__build_settings
-
-    @build_settings.setter
-    def build_settings(self, val):
-        self.__build_settings = val
-
-    def convert_build_settings_str(self):
+    def convert_build_settings_str(self) -> str:
         str_build_settings = ""
         # traverse in the string
         for settings in self.build_settings:
             str_build_settings += settings
         return str_build_settings
-
-    @property
-    def excludes(self):
-        return self.__excludes
-
-    @excludes.setter
-    def excludes(self, val):
-        self.__excludes = val
-
-    @property
-    def includes(self):
-        return self.__includes
-
-    @includes.setter
-    def includes(self, val):
-        self.__includes = val
-
-    @property
-    def build(self):
-        return self.__build
-
-    @build.setter
-    def build(self, val):
-        self.__build = val

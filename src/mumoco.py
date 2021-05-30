@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import argparse
 import os
+import sys
 
 from src.conanbuilder.configreader import ConfigReader
 from src.conanbuilder.runner import Runner
@@ -9,8 +10,7 @@ from src.conanbuilder.runner import Runner
 def valid_args(args: argparse.Namespace) -> bool:
     if args.remotes or args.sources or args.remove or args.create or args.upload:
         return True
-    else:
-        return False
+    return False
 
 
 def get_args() -> argparse.Namespace:
@@ -39,7 +39,7 @@ def get_args() -> argparse.Namespace:
         + --create
         + --upload"""
         )
-        exit(1)
+        sys.exit(1)
     return parser.parse_args()
 
 
