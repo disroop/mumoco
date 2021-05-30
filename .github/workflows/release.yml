@@ -45,7 +45,15 @@ jobs:
           # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
           poetry run flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics --extend-exclude=.venv
       - name: Run tests
-        run: poetry run pytest --cov src/ --cov-report term --cov-report html:coverage-reports/html --cov-report xml:coverage-reports/coverage-mumoco.xml
+        run: poetry run pytest --cov=src --junitxml=reports/xunit.xml --cov src/ --cov-report term --cov-report html:reports/html --cov-report xml:reports/coverage.xml
+      - name: Fix Code Coverage Paths
+        run: |
+          sed -i "s@${GITHUB_WORKSPACE}@/github/workspace/@g" ./reports/coverage.xml
+      - name: SonarCloud Scan
+        uses: sonarsource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       - name: Build and publish
         run: |
           poetry build
