@@ -34,18 +34,18 @@ class ConfigReader:
             print("Config file not accessible or readable")
             sys.exit(1)
 
-    def __parse_remote(self, r: Dict) -> Remote:
-        if "name" not in r:
+    def __parse_remote(self, data: Dict) -> Remote:
+        if "name" not in data:
             raise ValueError(f"You need to set name if you set a remote in {self.path}")
-        if "url" not in r:
+        if "url" not in data:
             raise ValueError(f"You need to set url if you set a remote {self.path}")
-        name = r.get("name", "")
-        url = r.get("url", "")
+        name = data.get("name", "")
+        url = data.get("url", "")
         remote = Remote(name=name, url=url)
-        remote.verify_ssl = r.get("verifyssl", True)
-        remote.priority = r.get("priority", 0)
-        remote.force = r.get("force", False)
-        remote.login = r.get("login", False)
+        remote.verify_ssl = data.get("verifyssl", True)
+        remote.priority = data.get("priority", 0)
+        remote.force = data.get("force", False)
+        remote.login = data.get("login", False)
         return remote
 
     def __parse_data(self, data: Dict) -> None:
@@ -53,13 +53,13 @@ class ConfigReader:
         self._signature.user = data.get("user", "")
         self._signature.channel = data.get("channel", "")
         self._configurations.clear()
-        for p in data.get("configurations", []):
-            configuration = __parse_configuration(p)
+        for configuration_data in data.get("configurations", []):
+            configuration = __parse_configuration(configuration_data)
             self._configurations.append(configuration)
 
         self._remotes.clear()
-        for p in data.get("remotes", []):
-            remote = self.__parse_remote(p)
+        for remote_data in data.get("remotes", []):
+            remote = self.__parse_remote(remote_data)
             self._remotes.append(remote)
 
     def get_configurations(self) -> List[BuilderSettings]:

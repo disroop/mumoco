@@ -35,7 +35,7 @@ class Package:
             return str(conan_package.get(attribute, ""))
         except ConanException:
             if fail_on_invalid:
-                raise Exception(f"Attribute not found: {attribute} in {path} - {ConanException}")
+                raise Exception(f"Attribute not found: {attribute} in {path} - {ConanException}") from ConanException
         return ""
 
     def _read_package_attributes(self, path: str) -> None:
