@@ -2,10 +2,10 @@ import copy
 import shutil
 
 from conans.client.conan_api import ProfileData
+from conans.errors import ConanException
 
 from .buildersettings import BuilderSettings
 from .signature import Signature
-from conans.errors import ConanException
 
 
 class Package:
