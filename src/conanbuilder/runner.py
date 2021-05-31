@@ -36,7 +36,8 @@ class Runner:
     # eprint(package.pattern)
 
     # package_signature = get_package_signature()
-    # package_pattern=f'{package_signature.name}/{package_signature.version}@{package_signature.user}/{package_signature.channel}'
+    # package_pattern=f'{package_signature.name}/{package_signature.version}
+    # @{package_signature.user}/{package_signature.channel}'
     # conan_command_line.create(package.path,test_build_folder=f'/tmp/{package.pattern}/tbf')
     # TODO:profiles_names =HOST, profiles_build=build
     # conan_command_line.authenticate()

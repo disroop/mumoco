@@ -22,6 +22,7 @@ black = "21.5b2"
 isort = "^5.8.0"
 bandit = "^1.7.0"
 invoke = "^1.5.0"
+pylint = "^2.8.2"
 
 [tool.poetry.scripts]
 mumoco = "src.mumoco:main"

@@ -8,11 +8,8 @@
     "python.linting.lintOnSave": true,
     "python.linting.pylintEnabled": true,
     "python.linting.pylintArgs": [
-        "--enable=W0614",
-        "--enable=W0611",
-        "--disable=C0114",
-        "--disable=raise-missing-from",
-        "--disable=unnecessary-pass",
+        "--enable=W0611,W0614",
+        "--disable=C0114,C0115,C0116",
         "--max-line-length=120"
     ],
     "python.linting.flake8Enabled": true,
@@ -21,7 +18,7 @@
         "--ignore=E203",
         "--ignore=E266",
         "--ignore=W503",
-        "--max-complexity = 18"
+        "--max-complexity = 10"
     ],
     "python.formatting.provider": "black",
     "python.formatting.blackArgs": [
