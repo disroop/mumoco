@@ -55,4 +55,4 @@ jobs:
       - name: Build and publish
         run: |
           poetry build
-          poetry publish --username "${{ secrets.PYPI_USERNAME }}" --password "${{ secrets.PYPI_PASSWORD }}" --dry-run
+          #poetry publish --username "${{ secrets.PYPI_USERNAME }}" --password "${{ secrets.PYPI_PASSWORD }}" --dry-run
