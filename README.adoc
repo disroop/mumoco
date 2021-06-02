@@ -1,5 +1,8 @@
 # mumoco
 
+image:https://github.com/disroop/mumoco/actions/workflows/build.yml/badge.svg[Build,link=https://github.com/disroop/mumoco/actions/workflows/build.yml]
+
+
 mumoco or multi module conan is a tool to help for working with multiple conan package simultaneously. mumoco is using pure conan commands and should only simplify the workflow.
 
 mumoco has several features, but the essential feature is that mumoco can find all conanfile.py in a given folder and in their subfolders to create conan packages. Another feature that mumoco has is to execute the conan source command in all found conan packages, this is extremely helpful if you work with conan packages that has external sources. 
