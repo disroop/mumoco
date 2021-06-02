@@ -1,6 +1,6 @@
 name: Build
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -49,5 +49,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      - name: Build and publish
+      - name: Build
+        run: python -c 'import build; build.build()'
+      - name: Publish Dry Run
+        if: github.event == 'push'
         run: python -c 'import build; build.build(); build.publish("${{ secrets.PYPI_USERNAME }}", "${{ secrets.PYPI_PASSWORD }}", True)'
