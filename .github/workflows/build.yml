@@ -31,19 +31,16 @@ jobs:
       #----------------------------------------------
       - name: Install dependencies
         if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
-        run: poetry install --no-interaction --no-root
+        run: python -c 'import build; build.install_dependencies()'
       - name: Install library
-        run: poetry install --no-interaction
+        run: python -c 'import build; build.install_libraries()'
       - name: Check format with black
-        run: poetry run black -l 120 --check --check .
+        run: python -c 'import build; build.check_format_with_black()'
       - name: Lint with flake8
-        run: |
-          # stop the build if there are Python syntax errors or undefined names
-          poetry run flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics  --extend-exclude=.venv
-          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-          poetry run flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics --extend-exclude=.venv
+        run: python -c 'import build; build.lint_with_flake8()'
+        # todo add mypy
       - name: Run tests
-        run: poetry run pytest --cov=src --junitxml=reports/xunit.xml --cov src/ --cov-report term --cov-report html:reports/html --cov-report xml:reports/coverage.xml
+        run: python -c 'import build; build.run_tests()'
       - name: Fix Code Coverage Paths
         run: |
           sed -i "s@${GITHUB_WORKSPACE}@/github/workspace/@g" ./reports/coverage.xml
@@ -53,6 +50,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       - name: Build and publish
-        run: |
-          poetry build
-          #poetry publish --username "${{ secrets.PYPI_USERNAME }}" --password "${{ secrets.PYPI_PASSWORD }}" --dry-run
+        run: python -c 'import build; build.build(); build.publish("${{ secrets.PYPI_USERNAME }}", "${{ secrets.PYPI_PASSWORD }}", True)'

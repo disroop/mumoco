@@ -87,7 +87,7 @@ class Package:
             profile_build=profile_build,
             settings=configuration.host_settings,
             build_modes=[f"{configuration.build}"],
-            test_build_folder=f"/tmp/{pattern}/tbf",
+            test_build_folder=f"/tmp/{pattern}/tbf",  # nosec -> fixme bandit issue and remove nosec
         )
 
     def source(self):
