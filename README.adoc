@@ -1,7 +1,19 @@
 # mumoco
 
 image:https://github.com/disroop/mumoco/actions/workflows/build.yml/badge.svg[Build,link=https://github.com/disroop/mumoco/actions/workflows/build.yml]
+image:https://sonarcloud.io/images/project_badges/sonarcloud-black.svg[]
 
+image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=bugs[Badge,link={uri-sonar}]
+image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=code_smells[Badge,link={uri-sonar}]
+image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=coverage[Badge,link={uri-sonar}]
+image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=duplicated_lines_density[Badge,link={uri-sonar}]
+image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=ncloc[Badge,link={uri-sonar}]
+image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=sqale_rating[Badge,link={uri-sonar}]
+image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=alert_status[Badge,link={uri-sonar}]
+image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=reliability_rating[Badge,link={uri-sonar}]
+image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=security_rating[Badge,link={uri-sonar}]
+image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=sqale_index[Badge,link={uri-sonar}]
+image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=vulnerabilities[Badge,link={uri-sonar}]
 
 mumoco or multi module conan is a tool to help for working with multiple conan package simultaneously. mumoco is using pure conan commands and should only simplify the workflow.
 
@@ -57,21 +69,7 @@ mumoco also can upload all the conan packages which where created and to login t
 |===
 
 == Code Analysis
+
 :uri-sonar: https://sonarcloud.io/dashboard?id=disroop_DisroopEmbeddedHipster
-
-image:https://sonarcloud.io/images/project_badges/sonarcloud-black.svg[]
-
-image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=bugs[Badge,link={uri-sonar}]
-image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=code_smells[Badge,link={uri-sonar}]
-image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=coverage[Badge,link={uri-sonar}]
-image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=duplicated_lines_density[Badge,link={uri-sonar}]
-image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=ncloc[Badge,link={uri-sonar}]
-image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=sqale_rating[Badge,link={uri-sonar}]
-image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=alert_status[Badge,link={uri-sonar}]
-image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=reliability_rating[Badge,link={uri-sonar}]
-image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=security_rating[Badge,link={uri-sonar}]
-image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=sqale_index[Badge,link={uri-sonar}]
-image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=vulnerabilities[Badge,link={uri-sonar}]
-
 
 
