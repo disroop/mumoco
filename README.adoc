@@ -1,8 +1,8 @@
 # mumoco
 
 image:https://github.com/disroop/mumoco/actions/workflows/build.yml/badge.svg[Build,link=https://github.com/disroop/mumoco/actions/workflows/build.yml]
-image:https://sonarcloud.io/images/project_badges/sonarcloud-black.svg[]
 
+:uri-sonar: https://sonarcloud.io/dashboard?id=disroop_DisroopEmbeddedHipster
 image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=bugs[Badge,link={uri-sonar}]
 image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=code_smells[Badge,link={uri-sonar}]
 image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=coverage[Badge,link={uri-sonar}]
@@ -70,6 +70,6 @@ mumoco also can upload all the conan packages which where created and to login t
 
 == Code Analysis
 
-:uri-sonar: https://sonarcloud.io/dashboard?id=disroop_DisroopEmbeddedHipster
+image:https://sonarcloud.io/images/project_badges/sonarcloud-black.svg[]
 
 
