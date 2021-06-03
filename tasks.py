@@ -34,6 +34,11 @@ def lint_with_pylint(c):
 
 
 @task
+def lint_with_pylint(c):
+    c.run("poetry run pylint ./src --enable=W0611,W0614 -disable=C0114,C0115,C0116 --max-line-length=120")
+
+
+@task
 def lint_with_flake8(c):
     c.run("flake8 .")
 
@@ -60,7 +65,7 @@ def clean(c):
     folders = [".venv", ".pytest_cache", ".mypy_cache", "dist", "reports", "coverage"]
     for folder in folders:
         shutil.rmtree(folder, ignore_errors=True)
-    files = [ ".coverage"]
+    files = [".coverage"]
     for file in files:
-        with contextlib.suppress(FileNotFoundError):# -> like ignore_errors=True
-            os.remove(file,)
+        with contextlib.suppress(FileNotFoundError):  # -> like ignore_errors=True
+            os.remove(file)
