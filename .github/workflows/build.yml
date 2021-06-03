@@ -29,6 +29,8 @@ jobs:
         run: poetry run invoke install-libraries
       - name: Check format with black
         run: poetry run invoke check-format-with-black
+      - name: Lint with pylint
+        run: poetry run invoke lint-with-pylint
       - name: Lint with flake8
         run: poetry run invoke lint-with-flake8
         # todo add mypy
