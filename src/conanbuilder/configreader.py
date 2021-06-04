@@ -1,3 +1,6 @@
+"""
+The configreader provides the functionality to read a config json file
+"""
 import json
 import sys
 from typing import Dict, List

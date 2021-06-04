@@ -1,3 +1,6 @@
+"""
+A data class representing a builder setting
+"""
 from dataclasses import dataclass, field
 from typing import List
 

@@ -1,3 +1,6 @@
+"""
+The package class
+"""
 import copy
 import shutil
 import tempfile

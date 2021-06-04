@@ -1,3 +1,6 @@
+"""
+A data class representing a conan signature
+"""
 from dataclasses import dataclass
 
 

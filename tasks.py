@@ -32,7 +32,7 @@ def sort_imports_with_isort(c):
 
 @task
 def lint_with_pylint(c):
-    c.run("poetry run pylint ./src --enable=W0611,W0614 -disable=C0114,C0115,C0116 --max-line-length=120")
+    c.run("poetry run pylint ./src --enable=W0611,W0614 -disable=C0114,C0115,C0116,W0511 --max-line-length=120")
 
 
 @task

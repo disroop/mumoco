@@ -1,3 +1,6 @@
+"""
+A data class representing a conan remote
+"""
 from dataclasses import dataclass
 
 

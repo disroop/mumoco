@@ -1,4 +1,7 @@
 #!/usr/bin/python
+"""
+mumoco or multi module conan helps working with multiple conan package simultaneously.
+"""
 import argparse
 import os
 import sys
@@ -46,6 +49,7 @@ def get_args() -> argparse.Namespace:
 def main() -> None:
     args = get_args()
     config_reader = ConfigReader(args.config)
+    # todo get rid of ConfigReader class and make plain stateless methods with no state (no OOP style)
     config_reader.read()
     runner = Runner(args.root, config_reader.get_signature())
     if args.remotes:
