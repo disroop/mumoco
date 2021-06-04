@@ -2,7 +2,7 @@
 
 image:https://github.com/disroop/mumoco/actions/workflows/build.yml/badge.svg[Build,link=https://github.com/disroop/mumoco/actions/workflows/build.yml]
 
-:uri-sonar: https://sonarcloud.io/dashboard?id=disroop_DisroopEmbeddedHipster
+:uri-sonar: https://sonarcloud.io/dashboard?id=disroop_mumoco
 image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=bugs[Badge,link={uri-sonar}]
 image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=code_smells[Badge,link={uri-sonar}]
 image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=coverage[Badge,link={uri-sonar}]
