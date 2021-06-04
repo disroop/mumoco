@@ -16,8 +16,4 @@ class BuilderSettings:
     includes: List[str] = field(default_factory=lambda: [])
 
     def convert_build_settings_str(self) -> str:
-        str_build_settings = ""
-        # traverse in the string
-        for settings in self.build_settings:
-            str_build_settings += settings
-        return str_build_settings
+        return "".join(self.build_settings)
