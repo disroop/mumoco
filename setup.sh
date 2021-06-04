@@ -4,6 +4,7 @@ if ! command -v poetry &> /dev/null
 then
     echo "poetry is missing. Installing ..."
     curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+    source $HOME/.poetry/env
 fi
 
 echo "setting up poetry config"
