@@ -14,5 +14,5 @@ invoke lint-with-bandit
 #invoke # todo add mypy
 invoke run-tests
 # todo add Fix Code Coverage Paths and sonar scann
-invoke build
-invoke publish  --pypiusername='123'  --pypipassword='123' --dry_run
+poetry build
+poetry publish --username '123' --password '123' --dry_run
