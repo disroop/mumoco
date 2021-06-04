@@ -33,9 +33,7 @@ def lint_with_flake8(c):
     # stop the build if there are Python syntax errors or undefined names
     c.run("flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics  --extend-exclude=.venv")
     # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
-    c.run(
-        "flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics --extend-exclude=.venv"
-    )
+    c.run("flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics --extend-exclude=.venv")
 
 
 @task
@@ -62,4 +60,3 @@ def clean(c):
         os.remove(".coverage")
     except OSError:
         pass
-
