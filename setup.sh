@@ -9,3 +9,8 @@ poetry install --no-interaction --no-root
 
 echo "installing libraries"
 poetry install --no-interaction
+
+# tab completion for invoke
+#see http://docs.pyinvoke.org/en/stable/invoke.html#shell-tab-completion
+inv --print-completion-script zsh > .invoke-completion.sh
+source .invoke-completion.sh
