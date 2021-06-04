@@ -12,8 +12,10 @@ from invoke import run, task
 
 
 @task
-def check_format_with_black(c):
-    c.run("black -l 120 --check .")
+def check_format_with_black(c, fix=False):
+    if fix:
+        c.run("black -l 120 .")
+    c.run("black -l 120 . --check")
 
 
 @task
