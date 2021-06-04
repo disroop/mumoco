@@ -14,15 +14,15 @@ def inspect_conanfile_all(*args, **kwargs):
         "user": {"user": "test"},
         "channel": {"channel": "release"},
     }
-    list = kwargs["attributes"]
-    attribute = list[0]
+    attributes_list = kwargs["attributes"]
+    attribute = attributes_list[0]
     return vals[attribute]
 
 
 def inspect_conanfile_only_name(*args, **kwargs):
     vals = {"name": {"name": "example"}}
-    list = kwargs["attributes"]
-    attribute = list[0]
+    attributes_list = kwargs["attributes"]
+    attribute = attributes_list[0]
     if attribute in vals:
         return vals[attribute]
     else:
