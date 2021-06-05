@@ -3,8 +3,11 @@
 mumoco or multi module conan helps working with multiple conan package simultaneously.
 """
 import argparse
+import json
 import os
 import sys
+
+import deserialize
 
 from src.conanbuilder.configreader import ConfigReader
 from src.conanbuilder.runner import Runner
@@ -48,19 +51,24 @@ def get_args() -> argparse.Namespace:
 
 def main() -> None:
     args = get_args()
-    config_reader = ConfigReader(args.config)
-    # todo get rid of ConfigReader class and make plain stateless methods with no state (no OOP style)
-    config_reader.read()
-    runner = Runner(args.root, config_reader.get_signature())
+
+    try:
+        with open(args.config) as json_file:
+            config_reader = deserialize.deserialize(ConfigReader, json.load(json_file))
+    except IOError:
+        print("Config file not accessible or readable")
+        sys.exit(1)
+
+    runner = Runner(args.root, config_reader.signature)
     if args.remotes:
-        runner.add_all_remotes(config_reader.get_remotes(), args.username, args.password)
+        runner.add_all_remotes(config_reader.remotes, args.username, args.password)
     if args.sources:
         runner.get_all_sources()
     if args.remove:
         runner.remove_all_sources()
     if args.create:
         runner.export_all()
-        runner.create_all(config_reader.get_configurations())
+        runner.create_all(config_reader.configurations)
     if args.upload:
         runner.upload_all_packages(args.upload)
 
