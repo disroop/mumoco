@@ -175,6 +175,14 @@ python-versions = "*"
 packaging = "*"
 
 [[package]]
+name = "deserialize"
+version = "1.8.1"
+description = "A library to make deserialization easy."
+category = "main"
+optional = false
+python-versions = ">=3.6,<4.0"
+
+[[package]]
 name = "distro"
 version = "1.5.0"
 description = "Distro - an OS platform information API"
@@ -635,7 +643,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "4bb5e504ac48d1184beece04b1675439cf086a996cd7042de3261ddda4af88ac"
+content-hash = "49a2ef88055985cc89d25e87551446d8b1e1c8db3cead69cf8a378ee97753a1f"
 
 [metadata.files]
 appdirs = [
@@ -741,6 +749,10 @@ coverage = [
 deprecation = [
     {file = "deprecation-2.0.7-py2.py3-none-any.whl", hash = "sha256:dc9b4f252b7aca8165ce2764a71da92a653b5ffbf7a389461d7a640f6536ecb2"},
     {file = "deprecation-2.0.7.tar.gz", hash = "sha256:c0392f676a6146f0238db5744d73e786a43510d54033f80994ef2f4c9df192ed"},
+]
+deserialize = [
+    {file = "deserialize-1.8.1-py3-none-any.whl", hash = "sha256:b5277c20d8fb134fa78a2e2fd6ac3b9dfb8dd269efc2f7c43d0c7983846339f9"},
+    {file = "deserialize-1.8.1.tar.gz", hash = "sha256:1b3e986f881d94e067956fa90b2deedd92911b426b1463babb477998a1ddea5e"},
 ]
 distro = [
     {file = "distro-1.5.0-py2.py3-none-any.whl", hash = "sha256:df74eed763e18d10d0da624258524ae80486432cd17392d9c3d96f5e83cd2799"},

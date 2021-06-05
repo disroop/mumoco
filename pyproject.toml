@@ -12,6 +12,7 @@ Issues = "https://github.com/disroop/mumoco/issues"
 [tool.poetry.dependencies]
 python = "^3.8"
 conan = "^1.36.0"
+deserialize = "^1.8.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.4"
