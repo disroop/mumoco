@@ -2,8 +2,8 @@
 
 invoke --list
 
-invoke clean
-invoke configure-poetry
+#invoke clean
+#invoke configure-poetry
 invoke check-format-with-black
 invoke sort-imports-with-isort
 invoke install-dependencies
@@ -15,5 +15,5 @@ invoke lint-with-bandit
 invoke lint-with-mypy
 invoke run-tests
 # todo add Fix Code Coverage Paths and sonar scann
-poetry build
-poetry publish --username '123' --password '123' --dry_run
+poetry build}
+#poetry publish --username '123' --password '123' --dry_run
