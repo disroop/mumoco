@@ -63,6 +63,11 @@ def lint_with_bandit(c):
 
 
 @task
+def lint_with_mypy(c):
+    c.run("mypy")
+
+
+@task
 def run_tests(c):
     pytest_cmd = "pytest --cov=src --junitxml=reports/xunit.xml --cov src/"
     pytest_cmd = pytest_cmd + " --cov-report term --cov-report html:reports/html --cov-report xml:reports/coverage.xml"

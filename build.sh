@@ -12,6 +12,7 @@ invoke lint-with-pylint
 invoke lint-with-flake8
 invoke lint-with-bandit
 #invoke # todo add mypy
+invoke lint-with-mypy
 invoke run-tests
 # todo add Fix Code Coverage Paths and sonar scann
 poetry build
