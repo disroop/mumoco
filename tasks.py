@@ -24,21 +24,14 @@ def check_format_with_black(c, fix=False):
 
 @task
 def sort_imports_with_isort(c, fix=False):
-    isort_fix_cmd = "isort --profile black ."
-    isort_check_cmd = isort_fix_cmd + " --check"
     if fix:
-        c.run(isort_fix_cmd)
-    c.run(isort_check_cmd)
+        c.run("isort --check .")
+    c.run("isort .")
 
 
 @task
 def lint_with_pylint(c):
-    enabled_warnings = ["W0611", "W0614"]
-    disabled_warnings = ["C0114", "C0115", "C0116", "W0511"]
-    pylint_cmd = "pylint ./src --enable={} -disable={} --max-line-length={}".format(
-        ",".join(enabled_warnings), ",".join(disabled_warnings), LINE_LENGTH
-    )
-    c.run(pylint_cmd)
+    c.run("pylint ./src")
 
 
 @task

@@ -31,3 +31,21 @@ mumoco = "src.mumoco:main"
 [build-system]
 requires = ["poetry-core>=1.0.0"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pylint.messages_control]
+enable = ''',
+    unused-import,
+    unused-wildcard-import,
+'''
+disable = ''',
+    fixme,
+    missing-module-docstring,
+    missing-class-docstring,
+    missing-function-docstring,
+ '''
+
+[tool.pylint.format]
+max-line-length = 120
+
+[tool.isort]
+profile = "black"
