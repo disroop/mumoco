@@ -9,13 +9,17 @@ import shutil
 
 from invoke import task
 
+# Configurations
+# Note: configuration in pyproject.toml is the prefered solution
+# because IDE can integrate in pyproject.toml but will not integrate to our custom tasks.py
 LINE_LENGTH = 120
 MAX_COMPLEXITY = 10
 
 
 @task
 def check_format_with_black(c, fix=False):
-    format_cmd = "black -l {} .".format(LINE_LENGTH)
+    # Note: picks the LINE_LENGTH from pyproject.toml
+    format_cmd = f"black ."
     check_cmd = format_cmd + " --check"
     if fix:
         c.run(format_cmd)
@@ -39,14 +43,14 @@ def lint_with_flake8(c):
     errors = ["E9", "F63", "F7", "F82"]
     # stop the build if there are Python syntax errors or undefined names
     flake8_syntax_cmd = "flake8 . --count --select={}".format(",".join(errors))
-    flake8_syntax_cmd = flake8_syntax_cmd + "--show-source --statistics --extend-exclude=.venv"
+    flake8_syntax_cmd += "--show-source --statistics --extend-exclude=.venv"
     c.run(flake8_syntax_cmd)
 
     # exit-zero treats all errors as warnings. The GitHub editor is 120 chars wide
     flake8_complexity_cmd = "flake8 . --count --exit-zero --max-complexity={} --max-line-length={}".format(
         MAX_COMPLEXITY, LINE_LENGTH
     )
-    flake8_complexity_cmd = flake8_complexity_cmd + " --statistics --extend-exclude=.venv"
+    flake8_complexity_cmd += " --statistics --extend-exclude=.venv"
     c.run(flake8_complexity_cmd)
 
 
