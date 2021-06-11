@@ -25,8 +25,7 @@ def inspect_conanfile_only_name(*args, **kwargs):
     attribute = attributes_list[0]
     if attribute in vals:
         return vals[attribute]
-    else:
-        raise ConanException
+    raise ConanException
 
 
 def test_get_path():
