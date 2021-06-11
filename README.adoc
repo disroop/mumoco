@@ -15,6 +15,8 @@ image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&me
 image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=sqale_index[Badge,link={uri-sonar}]
 image:https://sonarcloud.io/api/project_badges/measure?project=disroop_mumoco&metric=vulnerabilities[Badge,link={uri-sonar}]
 
+image:https://static.deepsource.io/deepsource-badge-light.svg[DeepSource, link=https://deepsource.io/gh/disroop/mumoco?ref=repository-badge]
+
 mumoco or multi-module conan is a tool to help for working with multiple https://conan.io[conan] package simultaneously. mumoco is using pure conan commands and should only simplify the workflow.
 
 mumoco has several features, but the essential feature is that mumoco can find all `conanfile.py` in a given folder and in their sub-folders to create conan packages. Another feature that mumoco has is to execute the conan source command in all found conan packages, this is extremely helpful if you work with conan packages that has external sources.
