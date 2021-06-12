@@ -9,6 +9,7 @@ import shutil
 
 from invoke import task
 
+
 @task
 def check_format_with_black(c, fix=False):
     format_cmd = "black ."
