@@ -9,16 +9,9 @@ import shutil
 
 from invoke import task
 
-# Configurations
-# Note: configuration in pyproject.toml is the preferred solution
-# because IDE can integrate in pyproject.toml but will not integrate to our custom tasks.py
-LINE_LENGTH = 120
-MAX_COMPLEXITY = 10
-
-
 @task
 def check_format_with_black(c, fix=False):
-    format_cmd = f"black ."
+    format_cmd = "black ."
     check_cmd = format_cmd + " --check"
     if fix:
         c.run(format_cmd)
