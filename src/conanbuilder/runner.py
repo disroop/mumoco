@@ -19,18 +19,11 @@ class Runner:
 
     def create_all(self, configurations: List[BuilderSettings]) -> None:
         for config in configurations:
-            print(
-                "#######################################\n"
-                "########### create packages ###########\n"
-                f"# host profile:  {config.host_profile}\n"
-                f"# build profile: {config.build_profile}\n"
-                f"# host settings: {config.host_settings}\n"
-                f"# build settings: {config.build_settings}\n"
-                f"# build :         {config.build}\n"
-                f"# includes:      {config.includes}\n"
-                f"# excludes:      {config.excludes}\n"
-                "#######################################\n"
-            )
+            print("#######################################\n")
+            print("########### create packages ###########\n")
+            print(config)
+            print("#######################################\n")
+
             for package in self.packages:
                 if package.is_withing_scope(config):
                     package.create(config)
