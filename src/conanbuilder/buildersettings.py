@@ -17,3 +17,14 @@ class BuilderSettings:
 
     def convert_build_settings_str(self) -> str:
         return "".join(self.build_settings)
+
+    def __str__(self):
+        return (
+            "host profile: {}\n".format(self.host_profile)
+            + "build profile: {}\n".format(self.build_profile)
+            + "host settings: {}\n".format(self.host_settings)
+            + "build settings: {}\n".format(self.build_settings)
+            + "build: {}\n".format(self.build)
+            + "includes: {}\n".format(self.includes)
+            + "excludes: {}\n".format(self.excludes)
+        )
