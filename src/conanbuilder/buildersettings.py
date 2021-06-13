@@ -20,10 +20,10 @@ class BuilderSettings:
 
     def __str__(self):
         return (
-            "host profile: {}\n".format(self.host_profile)
-            + "build profile: {}\n".format(self.build_profile)
-            + "host settings: {}\n".format(self.host_settings)
-            + "build settings: {}\n".format(self.build_settings)
+            "host_profile: {}\n".format(self.host_profile)
+            + "build_profile: {}\n".format(self.build_profile)
+            + "host_settings: {}\n".format(self.host_settings)
+            + "build_settings: {}\n".format(self.build_settings)
             + "build: {}\n".format(self.build)
             + "includes: {}\n".format(self.includes)
             + "excludes: {}\n".format(self.excludes)
