@@ -17,16 +17,14 @@ class Runner:
         self.conan_factory, _, _ = Conan.factory()
         self.packages = self._get_all_packages(root_path, signature)
 
-    def create_all(self, configurations: List[BuilderSettings]) -> None:
-        for config in configurations:
+    def create_all(self, configurations: List[BuilderSettings], verbose: bool = True) -> None:
+        if verbose:
             print("#######################################\n")
             print("########### create packages ###########\n")
-            print(config)
             print("#######################################\n")
 
-            for package in self.packages:
-                if package.is_withing_scope(config):
-                    package.create(config)
+        for package in self.packages:
+            package.create_for_all_configurations(configurations, verbose)
 
     # relative_path = path.absolute()
     # eprint(package.pattern)

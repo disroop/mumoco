@@ -61,7 +61,7 @@ class Package:
             return False
         return True
 
-    def is_withing_scope(self, configuration: BuilderSettings = BuilderSettings()) -> bool:
+    def is_within_scope(self, configuration: BuilderSettings = BuilderSettings()) -> bool:
         if not self._check_includes(configuration.includes):
             return False
         for exclude in configuration.excludes:
@@ -74,7 +74,18 @@ class Package:
             self.path, self.name, self._signature.version, self._signature.user, self._signature.channel
         )
 
-    def create(self, configuration: BuilderSettings = BuilderSettings()) -> None:
+    def create_for_all_configurations(self, configurations: List[BuilderSettings], verbose: bool) -> None:
+        for configuration in configurations:
+            self.create_for_configuration(configuration, verbose)
+
+    def create_for_configuration(self, configuration: BuilderSettings, verbose) -> None:
+        if not self.is_within_scope(configuration):
+            return
+        if verbose:
+            print(configuration)
+        self.__create(configuration)
+
+    def __create(self, configuration: BuilderSettings = BuilderSettings()) -> None:
         pattern = self.get_pattern()
         profile_build = ProfileData(
             profiles=[f"{configuration.build_profile}"],
