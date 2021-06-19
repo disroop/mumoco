@@ -28,8 +28,7 @@ class Package:
     def get_path(self) -> str:
         return self.path
 
-    def get_pattern(self) -> str:
-        return f"{self.name}/{self._signature.version}@{self._signature.user}/{self._signature.channel}"
+        self.pattern = f"{self.name}/{self._signature.version}@{self._signature.user}/{self._signature.channel}"
 
     def _get_attribute(self, path: str, attribute: str, fail_on_invalid: bool = False) -> str:
         attribute = str(attribute)
@@ -86,7 +85,6 @@ class Package:
         self.__create(configuration)
 
     def __create(self, configuration: BuilderSettings = BuilderSettings()) -> None:
-        pattern = self.get_pattern()
         profile_build = ProfileData(
             profiles=[f"{configuration.build_profile}"],
             settings=configuration.convert_build_settings_str(),
@@ -103,7 +101,7 @@ class Package:
             profile_build=profile_build,
             settings=configuration.host_settings,
             build_modes=[f"{configuration.build}"],
-            test_build_folder="{}/{}/tbf".format(tempfile.gettempdir(), pattern),
+            test_build_folder="{}/{}/tbf".format(tempfile.gettempdir(), self.pattern),
         )
 
     def source(self) -> None:
@@ -113,5 +111,4 @@ class Package:
         shutil.rmtree(f"{self.path}/{self.source_folder}", ignore_errors=False, onerror=None)
 
     def upload_package(self, remote: str) -> None:
-        pattern = self.get_pattern()
-        self.conan_factory.upload(pattern, package=None, remote_name=remote)
+        self.conan_factory.upload(self.pattern, package=None, remote_name=remote)
