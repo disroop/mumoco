@@ -46,19 +46,22 @@ class Runner:
         )
         if remotes:
             for remote in remotes:
-                self.conan_factory.remote_add(
-                    remote_name=remote.name,
-                    url=remote.url,
-                    verify_ssl=remote.verify_ssl,
-                    insert=remote.priority,
-                    force=remote.force,
-                )
-                if remote.login:
-                    if not username or not password:
-                        raise Warning(f"Can't login to {remote.name} no username or password provided!")
-                    self.conan_factory.authenticate(name=username, password=password, remote_name=remote.name)
+                self.add_remote(remote, username, password)
         else:
             raise Warning("No Remotes defined. Nothing to add!")
+
+    def add_remote(self, remote: Remote, username: str, password: str) -> None:
+        self.conan_factory.remote_add(
+            remote_name=remote.name,
+            url=remote.url,
+            verify_ssl=remote.verify_ssl,
+            insert=remote.priority,
+            force=remote.force,
+        )
+        if remote.login:
+            if not username or not password:
+                raise Warning(f"Can't login to {remote.name} no username or password provided!")
+            self.conan_factory.authenticate(name=username, password=password, remote_name=remote.name)
 
     def _get_all_packages(self, root_path: str, signature: Signature = Signature()) -> List[Package]:
         conan_packages = []
