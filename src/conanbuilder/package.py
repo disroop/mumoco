@@ -24,14 +24,9 @@ class Package:
         self._signature = copy.copy(signature)
         self._read_package_attributes(path)
         self.path: str = str(path).replace("conanfile.py", "")
-
-    def get_path(self) -> str:
-        return self.path
-
         self.pattern = f"{self.name}/{self._signature.version}@{self._signature.user}/{self._signature.channel}"
 
     def _get_attribute(self, path: str, attribute: str, fail_on_invalid: bool = False) -> str:
-        attribute = str(attribute)
         try:
             conan_package = self.conan_factory.inspect(path=f"{path}", attributes=[f"{attribute}"])
             return str(conan_package.get(attribute, ""))
@@ -40,19 +35,21 @@ class Package:
                 raise Exception(f"Attribute not found: {attribute} in {path} - {ConanException}") from ConanException
         return ""
 
-    def _read_package_attributes(self, path: str) -> None:
-        self.name = self._get_attribute(path, "name", True)
-        version = self._get_attribute(path, "version")
-        if version != "":
-            self._signature.version = version
-        user = self._get_attribute(path, "user")
-        if user != "":
-            self._signature.user = user
-        channel = self._get_attribute(path, "channel")
-        if channel != "":
-            self._signature.channel = channel
+    def _read_attribute(self, path: str, attribute_name: str, member: str, fail_on_invalid: bool):
+        temp = self._get_attribute(path, attribute_name, fail_on_invalid)
+        if fail_on_invalid:
+            return temp
+        elif temp != "":
+            return temp
+        return member
 
-    def _check_includes(self, includes: List[str]) -> bool:
+    def _read_package_attributes(self, path: str) -> None:
+        self.name = self._read_attribute(path, "name", self.name, True)
+        self.version = self._read_attribute(path, "version", self.version, False)
+        self.user = self._read_attribute(path, "user", self.user, False)
+        self.channel = self._read_attribute(path, "channel", self.channel, False)
+
+    def _is_path_in_includes(self, includes: List[str]) -> bool:
         if len(includes) > 0:
             for include in includes:
                 if include in self.path:
