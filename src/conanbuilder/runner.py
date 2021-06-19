@@ -38,12 +38,13 @@ class Runner:
     # conan_command_line.remote_add()
     # conan_command_line.upload(package_pattern)
     # print(f'SUCCESS: {package_pattern}')
-    def add_all_remotes(self, remotes: List[Remote], username: str = str(), password: str = str()) -> None:
-        print(
-            "#######################################\n"
-            "########### add remote ################\n"
-            "#######################################\n"
-        )
+    def add_all_remotes(self, remotes: List[Remote], username: str, password: str, verbose: bool = True) -> None:
+        if verbose:
+            print(
+                "#######################################\n"
+                "########### add remote ################\n"
+                "#######################################\n"
+            )
         if remotes:
             for remote in remotes:
                 self.add_remote(remote, username, password)
@@ -71,33 +72,42 @@ class Runner:
                 conan_packages.append(Package(self.conan_factory, signature, path_string))
         return conan_packages
 
-    def export_all(self) -> None:
+    def export_all(self, verbose: bool = True) -> None:
+        if verbose:
+            print(
+                "#######################################\n"
+                "###########    export all    ##########\n"
+                "#######################################\n"
+            )
         for package in self.packages:
             package.export()
 
-    def get_all_sources(self) -> None:
-        print(
-            "#######################################\n"
-            "########### download sources ##########\n"
-            "#######################################\n"
-        )
+    def get_all_sources(self, verbose: bool = True) -> None:
+        if verbose:
+            print(
+                "#######################################\n"
+                "########### download sources ##########\n"
+                "#######################################\n"
+            )
         for package in self.packages:
             package.source()
 
-    def remove_all_sources(self) -> None:
-        print(
-            "#######################################\n"
-            "########### remove sources ############\n"
-            "#######################################\n"
-        )
+    def remove_all_sources(self, verbose: bool = True) -> None:
+        if verbose:
+            print(
+                "#######################################\n"
+                "########### remove sources ############\n"
+                "#######################################\n"
+            )
         for package in self.packages:
             package.source_remove()
 
-    def upload_all_packages(self, remote: str) -> None:
-        print(
-            "#######################################\n"
-            "########### upload packages ###########\n"
-            "#######################################\n"
-        )
+    def upload_all_packages(self, remote: str, verbose: bool = True) -> None:
+        if verbose:
+            print(
+                "#######################################\n"
+                "########### upload packages ###########\n"
+                "#######################################\n"
+            )
         for package in self.packages:
             package.upload_package(remote)
