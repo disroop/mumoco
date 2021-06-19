@@ -35,19 +35,19 @@ class Package:
                 raise Exception(f"Attribute not found: {attribute} in {path} - {ConanException}") from ConanException
         return ""
 
-    def _read_attribute(self, path: str, attribute_name: str, member: str, fail_on_invalid: bool):
+    def _read_attribute(self, path: str, attribute_name: str, member: str, fail_on_invalid: bool) -> str:
         temp = self._get_attribute(path, attribute_name, fail_on_invalid)
         if fail_on_invalid:
             return temp
-        elif temp != "":
+        if temp != "":
             return temp
         return member
 
     def _read_package_attributes(self, path: str) -> None:
         self.name = self._read_attribute(path, "name", self.name, True)
-        self.version = self._read_attribute(path, "version", self.version, False)
-        self.user = self._read_attribute(path, "user", self.user, False)
-        self.channel = self._read_attribute(path, "channel", self.channel, False)
+        self._signature.version = self._read_attribute(path, "version", self._signature.version, False)
+        self._signature.user = self._read_attribute(path, "user", self._signature.user, False)
+        self._signature.channel = self._read_attribute(path, "channel", self._signature.channel, False)
 
     def _is_path_in_includes(self, includes: List[str]) -> bool:
         if len(includes) > 0:
@@ -58,7 +58,7 @@ class Package:
         return True
 
     def _is_path_in_excludes(self, excludes: List[str]) -> bool:
-        for exclude in configuration.excludes:
+        for exclude in excludes:
             if exclude in self.path:
                 return True
         return False
@@ -77,7 +77,7 @@ class Package:
         for configuration in configurations:
             self.create_for_configuration(configuration, verbose)
 
-    def create_for_configuration(self, configuration: BuilderSettings, verbose) -> None:
+    def create_for_configuration(self, configuration: BuilderSettings, verbose: bool) -> None:
         if not self.is_within_scope(configuration):
             return
         if verbose:

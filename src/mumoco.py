@@ -8,6 +8,7 @@ import os
 import sys
 
 import deserialize
+from conans.client.conan_api import Conan
 
 from src.conanbuilder.configreader import ConfigReader
 from src.conanbuilder.runner import Runner
@@ -59,7 +60,8 @@ def main() -> None:
         print("Config file not accessible or readable")
         sys.exit(1)
 
-    runner = Runner(args.root, config_reader.signature)
+    conan_factory, _, _ = Conan.factory()
+    runner = Runner(conan_factory, args.root, config_reader.signature)
     if args.remotes:
         runner.add_all_remotes(config_reader.remotes, args.username, args.password)
     if args.sources:

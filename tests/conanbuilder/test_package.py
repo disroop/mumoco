@@ -32,7 +32,7 @@ def test_get_path():
     conan_factory = Mock()
     signature = Signature()
     package = Package(conan_factory, signature, "dir")
-    assert package.get_path() == "dir/"
+    assert package.path == "dir/"
 
 
 def test_get_pattern_in_file():
@@ -43,7 +43,7 @@ def test_get_pattern_in_file():
     signature.user = "disroop"
     conan_factory.inspect = MagicMock(side_effect=inspect_conanfile_all)
     package = Package(conan_factory, signature, "dir")
-    assert package.get_pattern() == "example/0.0.1@test/release"
+    assert package.pattern == "example/0.0.1@test/release"
 
 
 def test_get_pattern_by_signature():
@@ -54,4 +54,4 @@ def test_get_pattern_by_signature():
     signature.user = "disroop"
     conan_factory.inspect = MagicMock(side_effect=inspect_conanfile_only_name)
     package = Package(conan_factory, signature, "dir")
-    assert package.get_pattern() == "example/1.0.0@disroop/dev"
+    assert package.pattern == "example/1.0.0@disroop/dev"

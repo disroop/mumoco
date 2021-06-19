@@ -13,8 +13,8 @@ from .signature import Signature
 
 
 class Runner:
-    def __init__(self, root_path: str, signature: Signature = Signature()):
-        self.conan_factory, _, _ = Conan.factory()
+    def __init__(self, conan_factory: Conan, root_path: str, signature: Signature = Signature()):
+        self.conan_factory = conan_factory
         self.packages = self._get_all_packages(root_path, signature)
 
     def create_all(self, configurations: List[BuilderSettings], verbose: bool = True) -> None:
