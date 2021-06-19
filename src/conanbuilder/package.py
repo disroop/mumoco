@@ -60,13 +60,16 @@ class Package:
             return False
         return True
 
-    def is_within_scope(self, configuration: BuilderSettings = BuilderSettings()) -> bool:
-        if not self._check_includes(configuration.includes):
-            return False
+    def _is_path_in_excludes(self, excludes: List[str]) -> bool:
         for exclude in configuration.excludes:
             if exclude in self.path:
-                return False
-        return True
+                return True
+        return False
+
+    def is_within_scope(self, configuration: BuilderSettings = BuilderSettings()) -> bool:
+        if not self._is_path_in_includes(configuration.includes):
+            return False
+        return not self._is_path_in_excludes(configuration.excludes)
 
     def export(self) -> None:
         self.conan_factory.export(
