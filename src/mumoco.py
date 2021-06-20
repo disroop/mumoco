@@ -15,6 +15,9 @@ from src.conanbuilder.signature import Signature
 from src.exceptions import MumocoInvalidCommand
 
 # pylint: disable=R0913
+from src.exceptions import MumocoInvalidCommand
+
+
 def mumoco_api(
     upload: str = "",
     remove: bool = False,
