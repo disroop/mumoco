@@ -16,7 +16,7 @@ from .signature import Signature
 class Package:
     source_folder = "tmp"
 
-    def __init__(self, conan_factory: Conan, signature: Signature = Signature(), path: str = "."):
+    def __init__(self, conan_factory: Conan, signature: Signature, path: str):
         self.conan_factory = conan_factory
         if ".py" not in path:
             path = f"{path}/conanfile.py"

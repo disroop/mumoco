@@ -6,12 +6,16 @@ import argparse
 import json
 import os
 import sys
+from pathlib import Path
+from typing import List
 
 import deserialize
 from conans.client.conan_api import Conan
 
 from src.conanbuilder.configreader import ConfigReader
+from src.conanbuilder.package import Package
 from src.conanbuilder.runner import Runner
+from src.conanbuilder.signature import Signature
 
 
 def valid_args(args: argparse.Namespace) -> bool:
@@ -50,6 +54,24 @@ def get_args() -> argparse.Namespace:
     return parser.parse_args()
 
 
+def find_all_conanfiles_to_be_processed(root_path: str) -> List[str]:
+    conan_files = []
+    for path in Path(root_path).rglob("conanfile.py"):
+        path_string = str(path.absolute())
+        if "test_package" not in path_string:
+            conan_files.append(path_string)
+    return conan_files
+
+
+def find_all_packages_to_processed(conan_factory: Conan, root_path: str, signature: Signature) -> List[Package]:
+    conan_files = find_all_conanfiles_to_be_processed(root_path)
+
+    conan_packages = []
+    for file in conan_files:
+        conan_packages.append(Package(conan_factory, signature, file))
+    return conan_packages
+
+
 def main() -> None:
     args = get_args()
 
@@ -61,7 +83,9 @@ def main() -> None:
         sys.exit(1)
 
     conan_factory, _, _ = Conan.factory()
-    runner = Runner(conan_factory, args.root, config_reader.signature)
+    packages = find_all_packages_to_processed(conan_factory, args.root, config_reader.signature)
+
+    runner = Runner(conan_factory, packages)
     if args.remotes:
         runner.add_all_remotes(config_reader.remotes, args.username, args.password)
     if args.sources:
