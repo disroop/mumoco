@@ -1,9 +1,10 @@
-import shutil
-
-from src.mumoco import mumoco_api
-
 import os
 import os.path
+import sys
+import tempfile
+import subprocess
+
+from src.mumoco import mumoco_api
 
 file_paths = os.path.dirname(os.path.abspath(__file__))
 
@@ -11,21 +12,22 @@ file_paths = os.path.dirname(os.path.abspath(__file__))
 # setup:
 # mkdir sourcetest_src_in_git && cd  sourcetest_src_in_git && conan new sourcetest_src_in_git/1.0 -t
 def test_sources() -> None:
-    # Cleanup
-    shutil.rmtree(f"{file_paths}/sourcetest_src_in_git/source", ignore_errors=True)
-
     # fixme this fails
     # mumoco_api(sources=True,
     #            root=f"{file_paths}/sourcetest_src_in_git",
     #            config_file_path=f"{file_paths}/config-build.json")
 
     # but this works
-    os.system("conan source sourcetest_src_in_git --source-folder=sourcetest_src_in_git/source")
+    with tempfile.TemporaryDirectory() as temp_dir:
+        subprocess.run(
+            ["conan", "source", "sourcetest_src_in_git/conanfile.py", "--source-folder={}/source".format(temp_dir)],
+            check=True,
+        )
 
-    assert os.path.isfile("sourcetest_src_in_git/source/hello/.gitignore")
-    assert os.path.isfile("sourcetest_src_in_git/source/hello/CMakeLists.txt")
-    assert os.path.isfile("sourcetest_src_in_git/source/hello/hello.cpp")
-    assert os.path.isfile("sourcetest_src_in_git/source/hello/hello.h")
-    assert os.path.isfile("sourcetest_src_in_git/source/hello/LICENSE")
-    assert os.path.isfile("sourcetest_src_in_git/source/hello/main.cpp")
-    assert os.path.isfile("sourcetest_src_in_git/source/hello/readme.md")
+        assert os.path.isfile("{}/source/hello/.gitignore".format(temp_dir))
+        assert os.path.isfile("{}/source/hello/CMakeLists.txt".format(temp_dir))
+        assert os.path.isfile("{}/source/hello/hello.cpp".format(temp_dir))
+        assert os.path.isfile("{}/source/hello/hello.h".format(temp_dir))
+        assert os.path.isfile("{}/source/hello/LICENSE".format(temp_dir))
+        assert os.path.isfile("{}/source/hello/main.cpp".format(temp_dir))
+        assert os.path.isfile("{}/source/hello/readme.md".format(temp_dir))
