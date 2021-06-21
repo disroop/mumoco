@@ -104,8 +104,8 @@ class Package:
             test_build_folder="{}/{}/tbf".format(tempfile.gettempdir(), self.pattern),
         )
 
-    def source(self) -> None:
-        self.conan_factory.source(self.path, source_folder=f"{self.path}/{self.source_folder}")
+    def source(self, source_folder: str = "") -> None:
+        self.conan_factory.source(self.path, source_folder=source_folder)
 
     def source_remove(self) -> None:
         shutil.rmtree(f"{self.path}/{self.source_folder}", ignore_errors=False, onerror=None)

@@ -1,3 +1,4 @@
+import deserialize
 import pytest
 
 from src.conanbuilder.signature import Signature
@@ -33,3 +34,10 @@ def test_user(signature):
 def test_user_set(signature):
     signature.user = "user"
     assert signature.user == "user"
+
+
+def test_signature_deserialize():
+    signature = Signature(version="1.2.3", channel="user", user="ypsomed")
+    data = {"version": "1.2.3", "channel": "user", "user": "ypsomed"}
+    temp: Signature = deserialize.deserialize(Signature, data)
+    assert temp == signature

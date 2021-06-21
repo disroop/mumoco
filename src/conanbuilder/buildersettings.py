@@ -4,8 +4,16 @@ A data class representing a builder setting
 from dataclasses import dataclass, field
 from typing import List
 
+import deserialize
+
 
 @dataclass
+@deserialize.default("host_profile", "default")
+@deserialize.default("build_profile", "default")
+@deserialize.default("host_settings", [])
+@deserialize.default("build_settings", [])
+@deserialize.default("excludes", [])
+@deserialize.default("includes", [])
 class BuilderSettings:
     host_profile: str = "default"
     build_profile: str = "default"

@@ -1,0 +1,15 @@
+{
+    "signature": {
+        "version": "snapshot",
+        "channel": "development",
+        "user": "disroop"
+    },
+    "remotes": [
+        {
+            "name": "disroop-conan",
+            "url": "https://disroop.jfrog.io/artifactory/api/conan/disroop-conan",
+            "login": false,
+            "force": true
+        }
+    ]
+}

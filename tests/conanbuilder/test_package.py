@@ -37,10 +37,7 @@ def test_get_path():
 
 def test_get_pattern_in_file():
     conan_factory, _, _ = Conan.factory()
-    signature = Signature()
-    signature.version = "1.0.0"
-    signature.channel = "dev"
-    signature.user = "disroop"
+    signature = Signature(version="1.0.0", channel="dev", user="disroop")
     conan_factory.inspect = MagicMock(side_effect=inspect_conanfile_all)
     package = Package(conan_factory, signature, "dir")
     assert package.pattern == "example/0.0.1@test/release"
@@ -48,10 +45,7 @@ def test_get_pattern_in_file():
 
 def test_get_pattern_by_signature():
     conan_factory, _, _ = Conan.factory()
-    signature = Signature()
-    signature.version = "1.0.0"
-    signature.channel = "dev"
-    signature.user = "disroop"
+    signature = Signature(version="1.0.0", channel="dev", user="disroop")
     conan_factory.inspect = MagicMock(side_effect=inspect_conanfile_only_name)
     package = Package(conan_factory, signature, "dir")
     assert package.pattern == "example/1.0.0@disroop/dev"

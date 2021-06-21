@@ -1,3 +1,5 @@
+import deserialize
+
 from src.conanbuilder.buildersettings import BuilderSettings
 
 
@@ -32,3 +34,26 @@ def test_buildersettings_convert_to_string():
         "includes: ['in1', 'in2']\n"
         "excludes: ['ex1', 'ex2', 'ex3']\n"
     )
+
+
+def test_buildersettings_deserialize():
+    config = BuilderSettings(
+        host_profile=".profiles/gcc-arm-none-eabi-9",
+        build_profile="default",
+        host_settings=["build_type=Debug", "build_type=Release"],
+        build_settings=["build_type=Release"],
+        build="missing",
+        excludes=["cmake_vars", "gcc_arm_none_eabi"],
+        includes=[],
+    )
+
+    data = {
+        "host_profile": ".profiles/gcc-arm-none-eabi-9",
+        "build_profile": "default",
+        "host_settings": ["build_type=Debug", "build_type=Release"],
+        "build_settings": ["build_type=Release"],
+        "build": "missing",
+        "excludes": ["cmake_vars", "gcc_arm_none_eabi"],
+    }
+    settings: BuilderSettings = deserialize.deserialize(BuilderSettings, data)
+    assert config == settings

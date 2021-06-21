@@ -72,7 +72,7 @@ class Runner:
         for package in self.packages:
             package.export()
 
-    def get_all_sources(self, verbose: bool = True) -> None:
+    def get_all_sources(self, base_folder: str = "", verbose: bool = True) -> None:
         if verbose:
             print(
                 "#######################################\n"
@@ -80,7 +80,11 @@ class Runner:
                 "#######################################\n"
             )
         for package in self.packages:
-            package.source()
+            if base_folder:
+                path = "{}/{}".format(base_folder, package.name)
+            else:
+                path = "{}/tmp".format(package.path)
+            package.source(source_folder=path)
 
     def remove_all_sources(self, verbose: bool = True) -> None:
         if verbose:
