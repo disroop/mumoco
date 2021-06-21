@@ -15,5 +15,5 @@ invoke lint-with-bandit
 invoke lint-with-mypy
 invoke run-tests
 # todo add Fix Code Coverage Paths and sonar scann
-poetry build}
+poetry build
 #poetry publish --username '123' --password '123' --dry_run
