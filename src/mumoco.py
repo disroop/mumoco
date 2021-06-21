@@ -21,6 +21,7 @@ def mumoco_api(
     create: bool = False,
     remotes: bool = False,
     sources: bool = False,
+    source_folder: str = "",
     username: str = "",
     password: str = "",
     root: str = "",  # maybe impove to use file path type
@@ -41,7 +42,7 @@ def mumoco_api(
     if remotes:
         runner.add_all_remotes(config.remotes, username, password)
     if sources:
-        runner.get_all_sources()
+        runner.get_all_sources(source_folder)
     if remove:
         runner.remove_all_sources()
     if create:
