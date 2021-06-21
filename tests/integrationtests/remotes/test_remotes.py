@@ -3,7 +3,8 @@ from argparse import Namespace
 import conans.client.conan_api
 import pytest
 
-import mumoco
+import os
+from src.mumoco import mumoco_api
 import src.conanbuilder.remote
 
 # Test 1
@@ -22,18 +23,16 @@ import src.conanbuilder.remote
 # Test 5 - test twice calling conan --remote and a changes config
 # ... what eslse?
 
+FILE_PATH = os.path.dirname(os.path.abspath(__file__))
 
-@pytest.mark.skip(reason="this test currently fails")
-def test_remote():
-    # given
-    # a clean conan setup
-    # just conan center exist in remotes
 
-    # when
-    # running mumocmo --remotes with config-build.json
-    # then
-    # has added the new remote
-    assert True
+def test_empty_remote():
+    with pytest.raises(Warning):
+        mumoco_api(
+            remotes=True,
+            root=f"{FILE_PATH}/sourcetest_src_in_git",
+            config_file_path=f"{FILE_PATH}/empty_remote.json",
+        )
 
 
 @pytest.mark.skip(reason="this test currently fails")

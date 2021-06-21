@@ -1,7 +1,9 @@
 {
-    "version": "snapshot",
-    "channel": "development",
-    "user": "disroop",
+    "signature": {
+        "version": "snapshot",
+        "channel": "development",
+        "user": "disroop"
+    },
     "remotes": [
         {
             "name": "disroop-conan",
