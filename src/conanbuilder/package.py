@@ -6,6 +6,7 @@ import shutil
 import tempfile
 from typing import List
 
+import cli_ui as ui
 from conans.client.conan_api import Conan, ProfileData
 from conans.errors import ConanException
 
@@ -73,15 +74,14 @@ class Package:
             self.path, self.name, self._signature.version, self._signature.user, self._signature.channel
         )
 
-    def create_for_all_configurations(self, configurations: List[BuilderSettings], verbose: bool) -> None:
+    def create_for_all_configurations(self, configurations: List[BuilderSettings]) -> None:
         for configuration in configurations:
-            self.create_for_configuration(configuration, verbose)
+            self.create_for_configuration(configuration)
 
-    def create_for_configuration(self, configuration: BuilderSettings, verbose: bool) -> None:
+    def create_for_configuration(self, configuration: BuilderSettings) -> None:
         if not self.is_within_scope(configuration):
             return
-        if verbose:
-            print(configuration)
+        ui.info(ui.tabs(2), configuration)
         self.__create(configuration)
 
     def __create(self, configuration: BuilderSettings = BuilderSettings()) -> None:
