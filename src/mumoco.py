@@ -1,8 +1,8 @@
 import json
-import sys
 from pathlib import Path
 from typing import List
 
+import cli_ui as ui
 import deserialize
 from conans.client.conan_api import Conan
 
@@ -81,8 +81,8 @@ def config_reader_from_file(file: str) -> ConfigReader:
         with open(file) as json_file:
             return config_reader_from_string(json.load(json_file))
     except IOError:
-        print("Config file not accessible or readable")
-        sys.exit(1)
+        ui.fatal("Config file not accessible or readable")
+    return ConfigReader()
 
 
 def config_reader_from_string(load: str) -> ConfigReader:

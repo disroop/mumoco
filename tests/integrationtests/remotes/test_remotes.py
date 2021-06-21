@@ -1,11 +1,11 @@
+import os
 from argparse import Namespace
 
 import conans.client.conan_api
 import pytest
 
-import os
-from src.mumoco import mumoco_api
 import src.conanbuilder.remote
+from src.mumoco import mumoco_api
 
 # Test 1
 # given

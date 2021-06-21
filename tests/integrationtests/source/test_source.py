@@ -1,10 +1,5 @@
 import os
-import os.path
-import subprocess
-import sys
 import tempfile
-
-import pytest
 
 from src.mumoco import mumoco_api
 
