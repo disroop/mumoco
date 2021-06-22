@@ -4,8 +4,9 @@ from argparse import Namespace
 import conans.client.conan_api
 import pytest
 
+import mumoco
 import src.conanbuilder.remote
-from src.mumoco import mumoco_api
+from src.mumoco_api import MumocoAPI
 
 # Test 1
 # given
@@ -28,11 +29,8 @@ FILE_PATH = os.path.dirname(os.path.abspath(__file__))
 
 def test_empty_remote():
     with pytest.raises(Warning):
-        mumoco_api(
-            remotes=True,
-            root=f"{FILE_PATH}/sourcetest_src_in_git",
-            config_file_path=f"{FILE_PATH}/empty_remote.json",
-        )
+        api = MumocoAPI(root=f"{FILE_PATH}/sourcetest_src_in_git", config_file_path=f"{FILE_PATH}/empty_remote.json")
+        api.add_remotes("", "")
 
 
 @pytest.mark.skip(reason="this test currently fails")
