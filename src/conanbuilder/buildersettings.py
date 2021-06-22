@@ -28,11 +28,11 @@ class BuilderSettings:
 
     def __str__(self) -> str:
         return (
-            "host_profile: {}\n".format(self.host_profile)
-            + "build_profile: {}\n".format(self.build_profile)
-            + "host_settings: {}\n".format(self.host_settings)
-            + "build_settings: {}\n".format(self.build_settings)
-            + "build: {}\n".format(self.build)
-            + "includes: {}\n".format(self.includes)
-            + "excludes: {}\n".format(self.excludes)
+            f"host_profile: {self.host_profile}\n"
+            + f"build_profile: {self.build_profile}\n"
+            + f"host_settings: {self.host_settings}\n"
+            + f"build_settings: {self.build_settings}\n"
+            + f"build: {self.build}\n"
+            + f"includes: {self.includes}\n"
+            + f"excludes: {self.excludes}\n"
         )

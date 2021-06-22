@@ -81,9 +81,9 @@ class Runner:
             )
         for package in self.packages:
             if base_folder:
-                path = "{}/{}".format(base_folder, package.name)
+                path = f"{base_folder}/{package.name}"
             else:
-                path = "{}/tmp".format(package.path)
+                path = f"{package.path}/tmp"
             package.source(source_folder=path)
 
     def remove_all_sources(self, verbose: bool = True) -> None:

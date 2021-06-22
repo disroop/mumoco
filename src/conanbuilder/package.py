@@ -101,7 +101,7 @@ class Package:
             profile_build=profile_build,
             settings=configuration.host_settings,
             build_modes=[f"{configuration.build}"],
-            test_build_folder="{}/{}/tbf".format(tempfile.gettempdir(), self.pattern),
+            test_build_folder=f"{tempfile.gettempdir()}/{self.pattern}/tbf",
         )
 
     def source(self, source_folder: str = "") -> None:

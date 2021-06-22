@@ -15,17 +15,17 @@ def test_sources() -> None:
     with tempfile.TemporaryDirectory() as temp_dir:
         mumoco_api(
             sources=True,
-            source_folder="{}/source".format(temp_dir),
+            source_folder=f"{temp_dir}/source",
             root=f"{FILE_PATH}/sourcetest_src_in_git",
             config_file_path=f"{FILE_PATH}/config-build.json",
         )
 
-        output_dir = "{}/source/sourcetest_src_in_git/hello".format(temp_dir)
+        output_dir = f"{temp_dir}/source/sourcetest_src_in_git/hello"
 
-        assert os.path.isfile("{}/.gitignore".format(output_dir))
-        assert os.path.isfile("{}/CMakeLists.txt".format(output_dir))
-        assert os.path.isfile("{}/hello.cpp".format(output_dir))
-        assert os.path.isfile("{}/hello.h".format(output_dir))
-        assert os.path.isfile("{}/LICENSE".format(output_dir))
-        assert os.path.isfile("{}/main.cpp".format(output_dir))
-        assert os.path.isfile("{}/readme.md".format(output_dir))
+        assert os.path.isfile(f"{output_dir}/.gitignore")
+        assert os.path.isfile(f"{output_dir}/CMakeLists.txt")
+        assert os.path.isfile(f"{output_dir}/hello.cpp")
+        assert os.path.isfile(f"{output_dir}/hello.h")
+        assert os.path.isfile(f"{output_dir}/LICENSE")
+        assert os.path.isfile(f"{output_dir}/main.cpp")
+        assert os.path.isfile(f"{output_dir}/readme.md")
