@@ -1,19 +1,15 @@
 import os
 import tempfile
 
-from src.mumoco import mumoco_api
+from src.mumoco_api import MumocoAPI
 
 FILE_PATH = os.path.dirname(os.path.abspath(__file__))
 
 
 def test_sources() -> None:
     with tempfile.TemporaryDirectory() as temp_dir:
-        mumoco_api(
-            sources=True,
-            source_folder=f"{temp_dir}/source",
-            root=f"{FILE_PATH}/sourcetest_src_in_git",
-            config_file_path=f"{FILE_PATH}/config-build.json",
-        )
+        api = MumocoAPI(root=f"{FILE_PATH}/sourcetest_src_in_git", config_file_path=f"{FILE_PATH}/config-build.json")
+        api.sources(f"{temp_dir}/source")
 
         output_dir = f"{temp_dir}/source/sourcetest_src_in_git/hello"
 
