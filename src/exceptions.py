@@ -1,2 +1,0 @@
-class MumocoInvalidCommand(Exception):
-    pass
