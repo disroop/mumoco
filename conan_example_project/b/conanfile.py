@@ -7,4 +7,3 @@ class BConan(ConanFile):
     python_requires_extend = "disroopbase.Base"
 
     requires = "demoa/0.1@disroop/development"
-

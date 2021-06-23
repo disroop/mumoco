@@ -3,10 +3,11 @@ import os.path
 
 conan_file_path = os.path.dirname(os.path.realpath(__file__))
 
+
 def run(cmd):
     print(f"run: {cmd}")
     if os.system(cmd) != 0:
-        raise Exception('System command \"' + cmd + '\" failed')
+        raise Exception('System command "' + cmd + '" failed')
 
 
 if __name__ == "__main__":

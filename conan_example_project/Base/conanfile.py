@@ -33,13 +33,11 @@ class Base(object):
         self.requires("cpputest/4.0", private=True)
 
     def package_info(self):
-            self.output.info("Disroop Base run: package_info")
-            self.output.info("Disroop Base run: package_info")
-            collect_libs = tools.collect_libs(self)
-            self.output.info(f"Disroop Base run: collect_libs {collect_libs}")
-            self.cpp_info.libs = collect_libs
-
-
+        self.output.info("Disroop Base run: package_info")
+        self.output.info("Disroop Base run: package_info")
+        collect_libs = tools.collect_libs(self)
+        self.output.info(f"Disroop Base run: collect_libs {collect_libs}")
+        self.cpp_info.libs = collect_libs
 
 
 class DisroopBase(ConanFile):
