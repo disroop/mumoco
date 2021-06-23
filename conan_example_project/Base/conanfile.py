@@ -1,5 +1,4 @@
-from conans import ConanFile, CMake
-from conans import tools
+from conans import CMake, ConanFile, tools
 
 
 class Base(object):
