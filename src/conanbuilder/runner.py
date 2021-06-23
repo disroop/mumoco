@@ -69,17 +69,15 @@ class Runner:
         ui.info(ui.green, "*", ui.reset, "download all packages")
         for package in self.packages:
             ui.info(ui.tabs(1), ui.blue, "- ", "download package {}".format(package.name))
-            if base_folder:
-                path = f"{base_folder}/{package.name}"
-            else:
-                path = f"{package.path}/tmp"
+            path = package.source_folder(base_folder)
             package.source(source_folder=path)
 
-    def remove_all_sources(self) -> None:
+    def remove_all_sources(self, base_folder: str = "") -> None:
         ui.info(ui.green, "*", ui.reset, "remove all packages")
         for package in self.packages:
             ui.info(ui.tabs(1), ui.blue, "- ", "remove package {}".format(package.name))
-            package.source_remove()
+            path = package.source_folder(base_folder)
+            package.source_remove(source_folder=path)
 
     def upload_all_packages(self, remote: str) -> None:
         ui.info(ui.green, "*", ui.reset, "upload all packages")

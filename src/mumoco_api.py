@@ -23,8 +23,8 @@ class MumocoAPI:
     def add_remotes(self, username: str, password: str) -> None:
         self.runner.add_all_remotes(self.config.remotes, username, password)
 
-    def remove(self) -> None:
-        self.runner.remove_all_sources()
+    def remove(self, source_folder: str = "") -> None:
+        self.runner.remove_all_sources(source_folder)
 
     def create(self) -> None:
         self.runner.export_all()

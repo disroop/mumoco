@@ -15,8 +15,6 @@ from .signature import Signature
 
 
 class Package:
-    source_folder = "tmp"
-
     def __init__(self, conan_factory: Conan, signature: Signature, path: str):
         self.conan_factory = conan_factory
         if ".py" not in path:
@@ -69,6 +67,11 @@ class Package:
             return False
         return not self._is_path_in_excludes(configuration.excludes)
 
+    def source_folder(self, base_folder: str = "") -> str:
+        if base_folder:
+            return f"{base_folder}/{self.name}"
+        return f"{self.path}/tmp"
+
     def export(self) -> None:
         self.conan_factory.export(
             self.path, self.name, self._signature.version, self._signature.user, self._signature.channel
@@ -104,11 +107,11 @@ class Package:
             test_build_folder=f"{tempfile.gettempdir()}/{self.pattern}/tbf",
         )
 
-    def source(self, source_folder: str = "") -> None:
+    def source(self, source_folder: str) -> None:
         self.conan_factory.source(self.path, source_folder=source_folder)
 
-    def source_remove(self) -> None:
-        shutil.rmtree(f"{self.path}/{self.source_folder}", ignore_errors=False, onerror=None)
+    def source_remove(self, source_folder: str) -> None:
+        shutil.rmtree(source_folder, ignore_errors=False, onerror=None)
 
     def upload_package(self, remote: str) -> None:
         self.conan_factory.upload(self.pattern, package=None, remote_name=remote)
