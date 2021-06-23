@@ -31,11 +31,14 @@ jobs:
 #        run: poetry run invoke install-libraries
       - name: Check format with black
         run: poetry run invoke check-format-with-black
+      - name: Check sorted import module
+        run: poetry run invoke sort-imports-with-isort
       - name: Lint with pylint
         run: poetry run invoke lint-with-pylint
       - name: Lint with flake8
         run: poetry run invoke lint-with-flake8
-        # todo add mypy
+      - name: Type checking with mypy
+        run: poetry run invoke lint-with-mypy
       - name: Run tests
         run: poetry run invoke run-tests
       - name: Fix Code Coverage Paths

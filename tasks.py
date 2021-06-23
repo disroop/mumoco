@@ -24,18 +24,13 @@ def check_format_with_black(c, fix=False):
 @task
 def sort_imports_with_isort(c, fix=False):
     if fix:
-        c.run("isort --check .")
-    c.run("isort .")
+        c.run("isort .")
+    c.run("isort --check .")
 
 
 @task
 def lint_with_pylint(c):
     c.run("pylint ./src")
-
-
-@task
-def lint_with_pylint(c):
-    c.run("poetry run pylint ./src --enable=W0611,W0614 -disable=C0114,C0115,C0116 --max-line-length=120")
 
 
 @task
