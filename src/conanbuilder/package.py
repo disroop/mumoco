@@ -107,11 +107,11 @@ class Package:
             test_build_folder=f"{tempfile.gettempdir()}/{self.pattern}/tbf",
         )
 
-    def source(self, source_folder: str) -> None:
-        self.conan_factory.source(self.path, source_folder=source_folder)
+    def source(self, base_folder: str) -> None:
+        self.conan_factory.source(self.path, source_folder=self.source_folder(base_folder))
 
-    def source_remove(self, source_folder: str) -> None:
-        shutil.rmtree(source_folder, ignore_errors=False, onerror=None)
+    def source_remove(self, base_folder: str) -> None:
+        shutil.rmtree(self.source_folder(base_folder), ignore_errors=False, onerror=None)
 
     def upload_package(self, remote: str) -> None:
         self.conan_factory.upload(self.pattern, package=None, remote_name=remote)
