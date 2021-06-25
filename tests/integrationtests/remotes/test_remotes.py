@@ -5,8 +5,6 @@ import conans.client.conan_api
 import pytest
 
 import mumoco
-import src.conanbuilder.remote
-from src.mumoco_api import MumocoAPI
 
 # Test 1
 # given
@@ -29,7 +27,9 @@ FILE_PATH = os.path.dirname(os.path.abspath(__file__))
 
 def test_empty_remote():
     with pytest.raises(Warning):
-        api = MumocoAPI(root=f"{FILE_PATH}/sourcetest_src_in_git", config_file_path=f"{FILE_PATH}/empty_remote.json")
+        api = mumoco.MumocoAPI(
+            root=f"{FILE_PATH}/sourcetest_src_in_git", config_file_path=f"{FILE_PATH}/empty_remote.json"
+        )
         api.add_remotes("", "")
 
 
@@ -68,7 +68,7 @@ def test_remote2():
     # # assert pop == Remote(name='disroop-conan',
     # #                      url='https://disroop.jfrog.io/artifactory/api/conan/disroop-conan',
     # #                      verify_ssl=None)
-    # remote_remote = src.conanbuilder.remote.Remote("disroop-conan",
+    # remote_remote = mumoco.Remote("disroop-conan",
     #                                                "https://disroop.jfrog.io/artifactory/api/conan/disroop-conan",
     #                                                verify_ssl=None)
     # assert pop is remote_remote

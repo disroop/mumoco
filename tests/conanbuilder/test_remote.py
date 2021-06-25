@@ -1,12 +1,12 @@
 import deserialize
 import pytest
 
-from src.conanbuilder.remote import Remote
+import mumoco
 
 
 @pytest.fixture
 def remote():
-    return Remote("myName", "myUrl")
+    return mumoco.Remote("myName", "myUrl")
 
 
 def test_default_values(remote):
@@ -23,5 +23,5 @@ def test_remote_deserialize(remote):
         "name": "myName",
         "url": "myUrl",
     }
-    temp: Remote = deserialize.deserialize(Remote, data)
+    temp: mumoco.Remote = deserialize.deserialize(mumoco.Remote, data)
     assert temp == remote

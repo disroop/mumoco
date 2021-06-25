@@ -3,7 +3,7 @@ import tempfile
 
 import pytest
 
-from src.mumoco_api import MumocoAPI
+from mumoco.mumoco_api import MumocoAPI
 
 FILE_PATH = os.path.dirname(os.path.abspath(__file__))
 

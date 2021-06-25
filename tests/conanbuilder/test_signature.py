@@ -1,12 +1,12 @@
 import deserialize
 import pytest
 
-from src.conanbuilder.signature import Signature
+import mumoco
 
 
 @pytest.fixture
 def signature():
-    return Signature()
+    return mumoco.Signature()
 
 
 def test_version(signature):
@@ -37,7 +37,7 @@ def test_user_set(signature):
 
 
 def test_signature_deserialize():
-    signature = Signature(version="1.2.3", channel="user", user="ypsomed")
+    signature = mumoco.Signature(version="1.2.3", channel="user", user="ypsomed")
     data = {"version": "1.2.3", "channel": "user", "user": "ypsomed"}
-    temp: Signature = deserialize.deserialize(Signature, data)
+    temp: mumoco.Signature = deserialize.deserialize(mumoco.Signature, data)
     assert temp == signature
