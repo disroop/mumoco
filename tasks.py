@@ -30,7 +30,7 @@ def sort_imports_with_isort(c, fix=False):
 
 @task
 def lint_with_pylint(c):
-    c.run("pylint ./src")
+    c.run("pylint ./mumoco")
 
 
 @task
@@ -40,7 +40,7 @@ def lint_with_flake8(c):
 
 @task
 def lint_with_bandit(c):
-    c.run("bandit -r src/ --exclude .venv")
+    c.run("bandit -r mumoco/ --exclude .venv")
 
 
 @task
@@ -50,7 +50,7 @@ def lint_with_mypy(c):
 
 @task
 def run_tests(c):
-    pytest_cmd = "pytest --cov=src --junitxml=reports/xunit.xml --cov src/"
+    pytest_cmd = "pytest --cov=mumoco --junitxml=reports/xunit.xml --cov mumoco/"
     pytest_cmd = pytest_cmd + " --cov-report term --cov-report html:reports/html --cov-report xml:reports/coverage.xml"
     c.run(pytest_cmd)
 
