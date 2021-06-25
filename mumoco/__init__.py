@@ -1,3 +1,5 @@
+__version__ = "0.3.0"
+
 # Re-exports objects from underlying packages (so that we can use
 # mumoco.ConfigReader instead of mumoco.conanbuilder.ConfigReader).
 
