@@ -6,10 +6,10 @@ import cli_ui as ui
 import deserialize
 from conans.client.conan_api import Conan
 
-from src.conanbuilder.configreader import ConfigReader
-from src.conanbuilder.package import Package
-from src.conanbuilder.runner import Runner
-from src.conanbuilder.signature import Signature
+from .conanbuilder.configreader import ConfigReader
+from .conanbuilder.package import Package
+from .conanbuilder.runner import Runner
+from .conanbuilder.signature import Signature
 
 
 class MumocoAPI:

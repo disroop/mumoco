@@ -7,7 +7,7 @@ import os
 
 import cli_ui as ui
 
-from src.mumoco_api import MumocoAPI
+import mumoco
 
 
 def get_args() -> argparse.Namespace:
@@ -31,7 +31,7 @@ def get_args() -> argparse.Namespace:
 
 if __name__ == "__main__":
     args = get_args()
-    api = MumocoAPI(args.config, args.root)
+    api = mumoco.MumocoAPI(args.config, args.root)
     VALID = False
 
     if args.remotes:
