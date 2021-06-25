@@ -13,6 +13,7 @@ import mumoco
 def get_args() -> argparse.Namespace:
     cwd = os.getcwd()
     parser = argparse.ArgumentParser()
+    parser.add_argument("--version", action="version", version="mumoco " + mumoco.__version__)
     parser.add_argument(
         "--root", type=str, required=False, default=cwd, help="Path to root folder of multipackage module"
     )
