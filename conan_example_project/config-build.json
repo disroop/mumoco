@@ -6,6 +6,8 @@
     },
     "configurations": [
         {
+            "host_profile": "default",
+            "build_profile": "default",
             "build": "missing"
         }
     ]
