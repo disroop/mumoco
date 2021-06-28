@@ -113,5 +113,5 @@ class Package:
     def source_remove(self, base_folder: str) -> None:
         shutil.rmtree(self.source_folder(base_folder), ignore_errors=False, onerror=None)
 
-    def upload_package(self, remote: str) -> None:
-        self.conan_factory.upload(self.pattern, package=None, remote_name=remote)
+    def upload_package(self, remote_name: str) -> None:
+        self.conan_factory.upload(self.pattern, package=None, remote_name=remote_name)

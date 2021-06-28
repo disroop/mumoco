@@ -27,7 +27,7 @@ invoke = "^1.5.0"
 pylint = "^2.8.2"
 
 [tool.poetry.scripts]
-mumoco = "mumoco.mumoco:main"
+mumoco = "mumoco.main:main"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
