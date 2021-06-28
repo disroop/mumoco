@@ -53,7 +53,7 @@ def setup_parser(main_parser: argparse.ArgumentParser) -> None:
     upload_parser.add_argument("remote_name", type=str, help="Remote name")
 
 
-def main():
+def main() -> None:
     try:
         parser = argparse.ArgumentParser()
         setup_parser(parser)
