@@ -6,10 +6,6 @@
     },
     "configurations": [
         {
-            "host_profile": ".infrastructure/conan_config/profiles/clang-apple-debug",
-            "build_profile": "default",
-            "host_settings": ["build_type=Debug"],
-            "build_settings": ["build_type=Release"],
             "build": "missing"
         }
     ]
