@@ -77,8 +77,8 @@ class Runner:
             ui.info(ui.tabs(1), ui.blue, "- ", "remove package {}".format(package.name))
             package.source_remove(base_folder=base_folder)
 
-    def upload_all_packages(self, remote: str) -> None:
+    def upload_all_packages(self, remote_name: str) -> None:
         ui.info(ui.green, "*", ui.reset, "upload all packages")
         for package in self.packages:
             ui.info(ui.tabs(1), ui.blue, "- ", "upload package {}".format(package.name))
-            package.upload_package(remote)
+            package.upload_package(remote_name)

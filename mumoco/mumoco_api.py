@@ -30,8 +30,8 @@ class MumocoAPI:
         self.runner.export_all()
         self.runner.create_all(self.config.configurations)
 
-    def upload(self, remote: str) -> None:
-        self.runner.upload_all_packages(remote)
+    def upload(self, remote_name: str) -> None:
+        self.runner.upload_all_packages(remote_name)
 
 
 def find_all_conanfiles_to_be_processed(root_path: str) -> List[str]:

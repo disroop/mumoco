@@ -9,4 +9,5 @@ from .conanbuilder.package import Package
 from .conanbuilder.remote import Remote
 from .conanbuilder.runner import Runner
 from .conanbuilder.signature import Signature
+from .errors import Error
 from .mumoco_api import MumocoAPI
