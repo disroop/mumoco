@@ -44,6 +44,9 @@ jobs:
       - name: Fix Code Coverage Paths
         run: |
           sed -i "s@${GITHUB_WORKSPACE}@/github/workspace/@g" ./reports/coverage.xml
+      - name: example
+        run: |
+          bash ./example.sh
       - name: SonarCloud Scan
         if: github.event_name != 'pull_request'
         uses: sonarsource/sonarcloud-github-action@master
