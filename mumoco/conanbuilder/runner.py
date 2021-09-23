@@ -20,7 +20,7 @@ class Runner:
         ui.info(ui.green, "*", ui.reset, "create all packages")
 
         for package in self.packages:
-            ui.info("  ", ui.blue, "- ", "create package {} for all configurations".format(package.name))
+            ui.info("  ", ui.blue, "- ", f"create package {package.name} for all configurations")
             package.create_for_all_configurations(configurations)
 
     # relative_path = path.absolute()
@@ -40,7 +40,7 @@ class Runner:
 
         if remotes:
             for remote in remotes:
-                ui.info(ui.tabs(1), ui.blue, "- ", "add remote {}".format(remote.name))
+                ui.info(ui.tabs(1), ui.blue, "- ", f"add remote {remote.name}")
                 self.add_remote(remote, username, password)
         else:
             raise Warning("No Remotes defined. Nothing to add!")
@@ -62,23 +62,23 @@ class Runner:
         ui.info(ui.green, "*", ui.reset, "export all")
 
         for package in self.packages:
-            ui.info(ui.tabs(1), ui.blue, "- ", "export package {}".format(package.name))
+            ui.info(ui.tabs(1), ui.blue, "- ", f"export package {package.name}")
             package.export()
 
     def get_all_sources(self, base_folder: str = "") -> None:
         ui.info(ui.green, "*", ui.reset, "download all packages")
         for package in self.packages:
-            ui.info(ui.tabs(1), ui.blue, "- ", "download package {}".format(package.name))
+            ui.info(ui.tabs(1), ui.blue, "- ", f"download package {package.name}")
             package.source(base_folder=base_folder)
 
     def remove_all_sources(self, base_folder: str = "") -> None:
         ui.info(ui.green, "*", ui.reset, "remove all packages")
         for package in self.packages:
-            ui.info(ui.tabs(1), ui.blue, "- ", "remove package {}".format(package.name))
+            ui.info(ui.tabs(1), ui.blue, "- ", f"remove package {package.name}")
             package.source_remove(base_folder=base_folder)
 
     def upload_all_packages(self, remote_name: str) -> None:
         ui.info(ui.green, "*", ui.reset, "upload all packages")
         for package in self.packages:
-            ui.info(ui.tabs(1), ui.blue, "- ", "upload package {}".format(package.name))
+            ui.info(ui.tabs(1), ui.blue, "- ", f"upload package {package.name}")
             package.upload_package(remote_name)
