@@ -26,10 +26,10 @@ class Base(object):
         self.output.info("Disroop Base run: package_info")
         self.cpp_info.libs = tools.collect_libs(self)
 
-    def requirements(self):
+    def build_requirements(self):
         self.output.info("Disroop Base run: requirements")
-        self.requires("gtest/1.10.0", private=True)
-        self.requires("cpputest/4.0", private=True)
+        self.build_requires("gtest/1.10.0", force_host_context=True)
+        self.build_requires("cpputest/4.0", force_host_context=True)
 
     def package_info(self):
         self.output.info("Disroop Base run: package_info")
