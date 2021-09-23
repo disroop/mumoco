@@ -60,7 +60,7 @@ def get_runner(config_reader: ConfigReader, root: str) -> Runner:
 
 def config_reader_from_file(file: str) -> ConfigReader:
     try:
-        with open(file) as json_file:
+        with open(file, encoding="utf-8") as json_file:
             return config_reader_from_string(json.load(json_file))
     except IOError:
         ui.fatal("Config file not accessible or readable")
