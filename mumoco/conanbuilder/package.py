@@ -92,7 +92,8 @@ class Package:
             profiles=[f"{configuration.build_profile}"],
             settings=configuration.convert_build_settings_str(),
             options="",
-            env="",
+            env=None,
+            conf=None,
         )
         self.conan_factory.create(
             self.path,
