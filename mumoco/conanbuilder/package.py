@@ -90,7 +90,7 @@ class Package:
     def __create(self, configuration: BuilderSettings = BuilderSettings()) -> None:
         profile_build = ProfileData(
             profiles=[f"{configuration.build_profile}"],
-            settings=configuration.convert_build_settings_str(),
+            settings=configuration.build_settings,
             options="",
             env=None,
             conf=None,
