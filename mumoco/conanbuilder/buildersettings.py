@@ -23,9 +23,6 @@ class BuilderSettings:
     excludes: List[str] = field(default_factory=lambda: [])
     includes: List[str] = field(default_factory=lambda: [])
 
-    def convert_build_settings_str(self) -> str:
-        return "".join(self.build_settings)
-
     def __str__(self) -> str:
         return (
             f"host_profile: {self.host_profile}\n"
