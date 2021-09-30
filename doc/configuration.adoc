@@ -1,13 +1,13 @@
 # Configuration
 
-The configuration of mumoco is set in a json file, default config-build.json. Therefore several configuration can be applied. Here is an example of a configuration.
+The configuration of mumoco is set in a json file, default mumoco.json. Therefore several configuration can be applied. Here is an example of a configuration.
 
 [source,json]
 ----
-include::example/config-build.json[]
+include::example/mumoco.json[]
 ----
 
-Each parameter of the config-build.json file is explained in this table:
+Each parameter of the mumoco.json file is explained in this table:
 
 |===
 |Parameter |Description
@@ -48,7 +48,7 @@ Each parameter of the config-build.json file is explained in this table:
 
 |remotes
 |remotes can hold multiple conan remote repository which are configured with the parameter mumoco --remotes. If a remote
-is configured, it is mandatory that a name and url is configured. By default a remote in the config-build.json file is always added to the top of the conan remote list.
+is configured, it is mandatory that a name and url is configured. By default a remote in the mumoco.json file is always added to the top of the conan remote list.
 
 |remotes.name
 |Sets the name of the conan remote. This parameter is mandatory if a remote is set.

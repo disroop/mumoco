@@ -12,7 +12,7 @@ import mumoco
 # just conan center exist in remotes
 
 # when
-# running mumoco --remotes with config-build.json
+# running mumoco --remotes with mumoco.json
 # then
 # has added the new remote ( test with conan remotes
 
@@ -40,7 +40,7 @@ def test_remote2():
     # just conan center exist in remotes
 
     # when
-    # running mumocmo --remotes with config-build.json
+    # running mumocmo --remotes with mumoco.json
     # then
     # has added the new remote
 
@@ -54,7 +54,7 @@ def test_remote2():
     # assert conan.remote_list() == []
     #
     # args = Namespace(root='/Users/stefaneicher/IdeaProjects/Disroop/github/mumoco/src',
-    #                  config='/Users/stefaneicher/IdeaProjects/Disroop/github/mumoco/tests/remotes/config-build.json',
+    #                  config='/Users/stefaneicher/IdeaProjects/Disroop/github/mumoco/tests/remotes/mumoco.json',
     #                  username=None, password=None, remotes=True, sources=False, remove=False, create=False,
     #                  upload=None)
     # mumoco.mumoco(args)

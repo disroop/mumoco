@@ -19,5 +19,5 @@ if __name__ == "__main__":
 
     cleanup()
     with tempfile.TemporaryDirectory() as temp_dir:
-        api = MumocoAPI(root=f"{FILE_PATH}", config_file_path=f"{FILE_PATH}/config-build.json")
+        api = MumocoAPI(root=f"{FILE_PATH}", config_file_path=f"{FILE_PATH}/mumoco.json")
         api.create()
