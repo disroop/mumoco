@@ -10,7 +10,7 @@ FILE_PATH = os.path.dirname(os.path.abspath(__file__))
 
 @pytest.fixture
 def api():
-    return MumocoAPI(root=f"{FILE_PATH}/sourcetest_src_in_git", config_file_path=f"{FILE_PATH}/config-build.json")
+    return MumocoAPI(root=f"{FILE_PATH}/sourcetest_src_in_git", config_file_path=f"{FILE_PATH}/mumoco.json")
 
 
 def test_sources(api) -> None:

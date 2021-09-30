@@ -36,7 +36,7 @@ mumoco also can upload all the conan packages which where created and to login t
 
 ### remotes
 
-mumoco updates all the conan remotes which are defined in config-build.json file. If the remotes.login parameter in the config-build.json file is set on a remote then the --user and --password parameter must be set.
+mumoco updates all the conan remotes which are defined in mumoco.json file. If the remotes.login parameter in the mumoco.json file is set on a remote then the --user and --password parameter must be set.
 
     $ mumoco remotes --user john.doe --password 1234567890
 
@@ -50,7 +50,7 @@ mumoco removes all folders PACKAGE-PATH/tmp. This is helpful to cleanup all sour
 
 ### create
 
-mumoco exports all conan packages into cache and creates all conan packages according to the config-build.json definition.
+mumoco exports all conan packages into cache and creates all conan packages according to the mumoco.json definition.
 
 ### upload
 

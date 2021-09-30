@@ -18,7 +18,7 @@ def add_root_argument(parser: argparse.ArgumentParser, default_path: str) -> Non
 
 
 def add_config_argument(parser: argparse.ArgumentParser, default_path: str) -> None:
-    parser.add_argument("--config", type=str, required=False, default=default_path, help="Path to config-build.json")
+    parser.add_argument("--config", type=str, required=False, default=default_path, help="Path to mumoco.json")
 
 
 def add_root_and_config_argument(parser: argparse.ArgumentParser, default_path: str, default_json: str) -> None:
@@ -28,12 +28,12 @@ def add_root_and_config_argument(parser: argparse.ArgumentParser, default_path: 
 
 def setup_parser(main_parser: argparse.ArgumentParser) -> None:
     cwd = os.getcwd()
-    default_config_json = f"{cwd}/config-build.json"
+    default_config_json = f"{cwd}/mumoco.json"
     main_parser.add_argument("--version", action="version", version=f"mumoco {mumoco.__version__}")
 
     actions_parser = main_parser.add_subparsers(help="available actions", dest="action")
 
-    remote_parser = actions_parser.add_parser("remotes", help="add all remotes from config-build.json")
+    remote_parser = actions_parser.add_parser("remotes", help="add all remotes from mumoco.json")
     add_root_and_config_argument(remote_parser, cwd, default_config_json)
 
     remote_parser.add_argument("--username", type=str, required=False, default="", help="User credentials")
