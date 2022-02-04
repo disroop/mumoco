@@ -177,7 +177,7 @@ toml = ["toml"]
 
 [[package]]
 name = "deserialize"
-version = "1.8.1"
+version = "1.8.3"
 description = "A library to make deserialization easy."
 category = "main"
 optional = false
@@ -784,8 +784,8 @@ coverage = [
     {file = "coverage-5.5.tar.gz", hash = "sha256:ebe78fe9a0e874362175b02371bdfbee64d8edc42a044253ddf4ee7d3c15212c"},
 ]
 deserialize = [
-    {file = "deserialize-1.8.1-py3-none-any.whl", hash = "sha256:b5277c20d8fb134fa78a2e2fd6ac3b9dfb8dd269efc2f7c43d0c7983846339f9"},
-    {file = "deserialize-1.8.1.tar.gz", hash = "sha256:1b3e986f881d94e067956fa90b2deedd92911b426b1463babb477998a1ddea5e"},
+    {file = "deserialize-1.8.3-py3-none-any.whl", hash = "sha256:48844d7bdebfe4b440cb3548d2a32a89d429a657e6c1947c703d32105763bde1"},
+    {file = "deserialize-1.8.3.tar.gz", hash = "sha256:d1aa33990e046f9ccbe2bb4d1d21631329df39b52462589dd4f80c0d59919306"},
 ]
 distro = [
     {file = "distro-1.6.0-py2.py3-none-any.whl", hash = "sha256:c8713330ab31a034623a9515663ed87696700b55f04556b97c39cd261aa70dc7"},
