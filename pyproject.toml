@@ -17,7 +17,7 @@ cli-ui = "^0.15.0"
 
 [tool.poetry.dev-dependencies]
 pytest = "^6.2.4"
-flake8 = "^3.9.2"
+flake8 = "^4.0.1"
 pytest-cov = "^2.12.1"
 mypy = "^0.910"
 black = "21.9b0"
