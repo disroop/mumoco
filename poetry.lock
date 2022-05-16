@@ -104,11 +104,11 @@ unicode_backport = ["unicodedata2"]
 
 [[package]]
 name = "cli-ui"
-version = "0.15.1"
+version = "0.17.0"
 description = "Build Nice User Interfaces In The Terminal"
 category = "main"
 optional = false
-python-versions = ">=3.6,<4.0"
+python-versions = ">=3.7,<4.0"
 
 [package.dependencies]
 colorama = ">=0.4.1,<0.5.0"
@@ -679,7 +679,7 @@ python-versions = "*"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.8"
-content-hash = "2353391d8c24061c6cbe6c4e0d530c1b562d0c2f147b61341eb7cdb9cf61a2be"
+content-hash = "ff3023d99e8e6411244c792dd6d8edceec8507c6fe6c6a2cd763512788dddabe"
 
 [metadata.files]
 astroid = [
@@ -715,8 +715,8 @@ charset-normalizer = [
     {file = "charset_normalizer-2.0.6-py3-none-any.whl", hash = "sha256:5d209c0a931f215cee683b6445e2d77677e7e75e159f78def0db09d68fafcaa6"},
 ]
 cli-ui = [
-    {file = "cli-ui-0.15.1.tar.gz", hash = "sha256:2458ae37372727c682eada71d43cdf0c70a1e474f6a5f27a3a54301aca9434c4"},
-    {file = "cli_ui-0.15.1-py3-none-any.whl", hash = "sha256:839d06552a76216c5582bc0263753a5aed98e6e3129bd4a594a6c201d4161f95"},
+    {file = "cli-ui-0.17.0.tar.gz", hash = "sha256:19a35b658bd19a1278dcb75330b28505a18753507fbbbe82cde59c7514e7cdee"},
+    {file = "cli_ui-0.17.0-py3-none-any.whl", hash = "sha256:542df9c9a4e46b5a9fd67312abebacdaf76dbf2410a7f72ada073cc1a9789ee0"},
 ]
 click = [
     {file = "click-8.0.1-py3-none-any.whl", hash = "sha256:fba402a4a47334742d782209a7c79bc448911afe1149d07bdabdf480b3e2f4b6"},
